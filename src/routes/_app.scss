@@ -53,19 +53,10 @@ body, #app {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.grid {
-  /* grid background */
   background-size: 50px 50px;
   background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
   background-color: rgb(60, 60, 60) !important;
   background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .dotted {
@@ -88,7 +79,7 @@ body, #app {
 .demo-drawer, .demo-main-content {
   overflow: auto;
   height: 100%;
-  background-color: #eee !important;
+  // background-color: #eee !important;
 }
 
 @import "@material/top-app-bar/variables";

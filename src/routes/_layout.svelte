@@ -3,6 +3,7 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/gun/gun.js" on:load={gunLoaded}></script>
   <script src="https://cdn.jsdelivr.net/npm/gun/sea.js" on:load={seaLoaded}></script> -->
 </svelte:head>
+
 {#if $page.path.startsWith('/demo/top-app-bar-iframe')}
   <slot></slot>
 {:else}
@@ -16,31 +17,24 @@
       </Section>
       <Section align="end" toolbar>
         {#if username}
-          <IconButton href='/field-service'>
+          <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiTruck}" />
+                <path d="{mdiMapOutline}" />
               </svg>
             </Icon>
           </IconButton>
-          <IconButton href='/channels/1337'>
+          <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiChat}" />
+                <path d="{mdiVideoVintage}" />
               </svg>
             </Icon>
           </IconButton>
-          <IconButton href='/fleet/1337'>
+          <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiGrid}" />
-              </svg>
-            </Icon>
-          </IconButton>
-          <IconButton href={`/accounts/${username}`}>
-            <Icon class="mdc-theme--secondary">
-              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiAccount}" />
+                <path d="{mdiStar}" />
               </svg>
             </Icon>
           </IconButton>
@@ -48,28 +42,21 @@
           <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiTwitter}" />
+                <path d="{mdiMapOutline}" />
               </svg>
             </Icon>
           </IconButton>
           <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiFacebook}" />
+                <path d="{mdiVideoVintage}" />
               </svg>
             </Icon>
           </IconButton>
           <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiLinkedin}" />
-              </svg>
-            </Icon>
-          </IconButton>
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
-            <Icon class="mdc-theme--secondary">
-              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiYoutube}" />
+                <path d="{mdiStar}" />
               </svg>
             </Icon>
           </IconButton>
@@ -128,7 +115,7 @@
   import {onMount, onDestroy} from 'svelte';
   import { writable } from 'svelte/store'
   import {stores} from '@sapper/app';
-  import {mdiTwitter, mdiFacebook, mdiLinkedin, mdiYoutube, mdiLogout, mdiChat, mdiTruck, mdiGrid, mdiAccount} from '@mdi/js';
+  import {mdiStar, mdiVideoVintage, mdiMapOutline} from '@mdi/js';
   import './_app.scss';
   import TopAppBar, {Row, Section, Title} from '@smui/top-app-bar';
   import Drawer, {Content, Scrim, AppContent} from '@smui/drawer';
