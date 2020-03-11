@@ -1,0 +1,220 @@
+//
+// Demo App Styles
+//
+
+// Import the typography styles.
+@import "scss/typography.scss";
+
+// We need the theming variables for the following styles.
+@import "smui-theme";
+// This adds classes like "mdc-theme--primary-bg".
+@import "@material/theme/mdc-theme";
+@import "@material/elevation/mixins";
+// Main Top App Bar styling.
+@import "@smui/top-app-bar/style";
+.mdc-top-app-bar.demo-top-app-bar {
+  // Color the top bar with "surface" colors.
+  @include mdc-top-app-bar-fill-color-accessible(#111);
+  @include mdc-top-app-bar-icon-ink-color(secondary);
+  // Give it a shadow.
+  @include mdc-elevation(4);
+  // Position it above the drawer.
+  z-index: 7;
+}
+
+
+.mdc-top-app-bar.demo-contact-app-bar {
+  // Color the top bar with "surface" colors.
+  @include mdc-top-app-bar-fill-color-accessible(#111);
+  @include mdc-top-app-bar-icon-ink-color(#fff);
+  // Give it a shadow.
+  @include mdc-elevation(4);
+  // Position it above the drawer.
+  z-index: 7;
+}
+
+.mdc-top-app-bar.demo-contact-app-bar .mdc-tab .mdc-tab__text-label {
+  color: #ccc;
+}
+.mdc-top-app-bar.demo-contact-app-bar .mdc-tab--active .mdc-tab__text-label  {
+  color: $mdc-theme-primary;
+}
+
+// Now on to the regular app styling stuff.
+
+html {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+
+body, #app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid {
+  /* grid background */
+  background-size: 50px 50px;
+  background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+  background-color: rgb(60, 60, 60) !important;
+  background-position: center;
+}
+
+.dotted {
+  background-color: #fff;
+  background-image: radial-gradient(circle, #eee, #eee 2px, #FFF 2px, #FFF);
+  background-size: 20px 20px;
+  background-position: center;
+}
+
+.drawer-container {
+  position: absolute;
+  top: 4em;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.demo-drawer, .demo-main-content {
+  overflow: auto;
+  height: 100%;
+  background-color: #eee !important;
+}
+
+@import "@material/top-app-bar/variables";
+.demo-drawer.demo-drawer-adjust {
+  padding-bottom: $mdc-top-app-bar-row-height;
+}
+
+.demo-app-content {
+  flex: auto;
+  position: relative;
+  width: 0;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.demo-main-content {
+  overflow: auto;
+  display: flex;
+}
+
+.demo-main-content section {
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.demo-main-content section:after {
+  height: 32px;
+  display: block;
+  content: " ";
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1.6em;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.label-default {
+  background-color: #777777;
+}
+
+section > div {
+  margin: 1em 0 .6em;
+}
+
+.status {
+  max-width: 100%;
+  font-size: .9em;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.version {
+  display: flex;
+  padding: 0 0 0 1em;
+}
+
+.app-release {
+  float: left;
+  line-height: 3.7em;
+  flex: 1;
+  font-size: 0.8em;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .drawer-container {
+    top: 3.5em;
+  }
+
+  [class*="mobile hidden"],
+  [class*="tablet only"]:not(.mobile),
+  [class*="computer only"]:not(.mobile),
+  [class*="large screen only"]:not(.mobile),
+  [class*="widescreen only"]:not(.mobile),
+  [class*="or lower hidden"] {
+    display: none !important;
+  }
+}
+
+/* Tablet / iPad Portrait */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  [class*="mobile only"]:not(.tablet),
+  [class*="tablet hidden"],
+  [class*="computer only"]:not(.tablet),
+  [class*="large screen only"]:not(.tablet),
+  [class*="widescreen only"]:not(.tablet),
+  [class*="or lower hidden"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Computer / Desktop / iPad Landscape */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  [class*="mobile only"]:not(.computer),
+  [class*="tablet only"]:not(.computer),
+  [class*="computer hidden"],
+  [class*="large screen only"]:not(.computer),
+  [class*="widescreen only"]:not(.computer),
+  [class*="or lower hidden"]:not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Large Monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  [class*="mobile only"]:not([class*="large screen"]),
+  [class*="tablet only"]:not([class*="large screen"]),
+  [class*="computer only"]:not([class*="large screen"]),
+  [class*="large screen hidden"],
+  [class*="widescreen only"]:not([class*="large screen"]),
+  [class*="or lower hidden"]:not(.computer):not(.tablet):not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Widescreen Monitor */
+@media only screen and (min-width: 1920px) {
+  [class*="mobile only"]:not([class*="widescreen"]),
+  [class*="tablet only"]:not([class*="widescreen"]),
+  [class*="computer only"]:not([class*="widescreen"]),
+  [class*="large screen only"]:not([class*="widescreen"]),
+  [class*="widescreen hidden"],
+  [class*="widescreen or lower hidden"] {
+    display: none !important;
+  }
+}
