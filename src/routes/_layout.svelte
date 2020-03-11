@@ -81,11 +81,11 @@
     {#if drawerOpen}
       <Drawer variant={miniWindow ? 'modal' : null} bind:open={drawerOpen} class="demo-drawer {miniWindow ? 'demo-drawer-adjust' : ''}">
         <Content>
-          <div style='margin: 1em 0.5em 0;'>
+          <!-- <div style='margin: 1em 0.5em 0;'>
             <Textfield style='width: 100%;' variant="outlined" bind:value={searchAccounts} label="Search accounts" withTrailingIcon input$aria-controls="helper-text-shaped-outlined-c" input$aria-describedby="helper-text-shaped-outlined-c">
               <Icon class="material-icons" style='line-height: 2.3em; right: 0.5em; position: absolute;'>search</Icon>
             </Textfield>
-          </div>
+          </div> -->
           <List>
             {#if sections}
               {#each sections as section (section.name)}
@@ -117,7 +117,7 @@
       <Scrim />
     {/if}
     <AppContent class="demo-app-content">
-      <main class="demo-main-content dotted" bind:this={mainContent}>
+      <main class="demo-main-content" bind:this={mainContent}>
         <slot></slot>
       </main>
     </AppContent>
@@ -182,78 +182,24 @@
     // boot(uuidv4()) // starts a random room
     // onDestroy(() => shutdown())
   })
-  
-  let hvac = [
-    {
-      name: 'HVAC',
-      route: '/refrigerants',
-      indent: 0
-    },
-    {
-      name: 'Charging & Diagnostic',
-      route: '/charging-diagnostic/1337',
-      indent: 1
-    },
-    {
-      name: 'Pressure Temperature',
-      route: '/pressure-temperature/R-410A',
-      indent: 1
-    }
-  ];
 
   let sections;
   let authSections = [
     {
-      name: 'Welcome',
-      route: '/welcome',
-      indent: 0
-    },
-    {
-      name: 'My Account',
+      name: 'Video Games',
       route: '/',
       indent: 0
     },
     {
-      name: 'Field Service',
-      route: '/field-service',
-      indent: 0
-    },
-    {
-      name: 'Companies',
-      route: '/field-service/#/companies',
+      name: 'Halo 3',
+      route: '/games/halo-3',
       indent: 1
     },
     {
-      name: 'Employees',
-      route: '/field-service/#/employees',
+      name: 'Halo Reach',
+      route: '/games/halo-reach',
       indent: 1
     },
-    {
-      name: 'Customers',
-      route: '/field-service/#/customers',
-      indent: 1
-    },
-    {
-      name: 'Fleet Management',
-      route: '/fleet/1337',
-      indent: 0
-    },
-    {
-      name: 'For Companies',
-      route: 'https://fleetgrid.com/fleet/1337',
-      indent: 1
-    },
-    {
-      name: 'For Pros',
-      route: 'https://fleetgridpro.com/fleet/1337',
-      indent: 1
-    },
-    {
-      name: 'For Homes',
-      route: 'https://fleetgridhome.com/fleet/1337',
-      indent: 1
-    },
-    ...hvac,
     {
       name: 'Chat on Discord',
       route: 'https://discordapp.com/channels/663882734438973471/663882735521234957',
@@ -274,41 +220,20 @@
 
   let guestSections = [
     {
-      name: 'Welcome',
-      route: '/welcome',
+      name: 'Video Games',
+      route: '/',
       indent: 0
     },
     {
-      name: 'Login',
-      route: '/login',
+      name: 'Halo 3',
+      route: '/games/halo-3',
       indent: 1
     },
     {
-      name: 'Register',
-      route: '/register',
+      name: 'Halo Reach',
+      route: '/games/halo-reach',
       indent: 1
     },
-    {
-      name: 'Fleet Management',
-      route: '/fleet/1337',
-      indent: 0
-    },
-    {
-      name: 'For Companies',
-      route: 'https://fleetgrid.com/fleet/1337',
-      indent: 1
-    },
-    {
-      name: 'For Pros',
-      route: 'https://fleetgridpro.com/fleet/1337',
-      indent: 1
-    },
-    {
-      name: 'For Homes',
-      route: 'https://fleetgridhome.com/fleet/1337',
-      indent: 1
-    },
-    ...hvac,
     {
       name: 'Chat on Discord',
       route: 'https://discordapp.com/channels/663882734438973471/663882735521234957',

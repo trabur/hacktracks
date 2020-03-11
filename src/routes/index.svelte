@@ -33,14 +33,11 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>HACKTRACKS</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="grid">
+	<div style="box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); background: url('/master-chief.jpg'); position: absolute; top: 0; right: 0; left: 0; height: 500px; background-position: top center; background-size: cover;"></div>
+	
+</div>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
