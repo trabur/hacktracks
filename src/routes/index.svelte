@@ -13,7 +13,7 @@
 		<Paper elevation={5} style="background: #111; color: #ccc;">
 			<Title>Ready? Set. Go!</Title>
 			<Content>
-				<p>Painful or enjoyable... Trash or artistic... HT is about (forge) {checkpoint}. To begin, let's back trace our steps to explain what is going on here...</p>
+				<p>Painful or enjoyable... Trash or artistic... HT is about (forge) {race}. To begin, let's back trace our steps to explain what is going on here...</p>
 				<p>The culture around HT is as simple as mud. Think about family trees for a moment. Grandparents raise parents, parents raise children, children raise grandchildren, and so on. To best represent this data structure we can think of an "alphabet" where letter "A" makes rules for letter "B", letter "B" makes rules for letter "C", and so on. A culture deeply rooted in supervisor trees.</p>
 				<p>The officiating around HT is somewhat complicated. Measuring youself before a race is good training but isn't the real thing. Measuring youself durring a race may yeild better results. Try a simple math situation like 1 + 1: (The solution to this problem {math} can be solved in many different ways. You could have used a calculator. You could have looked back at what has already been said.) However you got it, when it comes to making rules, sometimes the best measurment can only be taken post race: [2].</p>
 				<p>The spirit around HT is about riding to win the race. Let's run a mock event, for demonstration purposes, with the above culture and officiating ideals. As riders roll up to the starting gate "officials" will pin numbers onto the racers like variables in a program such that A -> 1, B --> 2, C ---> 3, and so on...</p>
@@ -25,8 +25,8 @@
 			<Content>
 				<p>M = ACK. The thing about cycling or going round and round a track is that you have options. Most riders may just be riding a {push} as if they are reading (left to right) ---> (top to bottom) ---> [Z]. There is also the {clipped} where riders may push down --->) and ({up} pull up while [Z]. Experienced riders, depending on the fassion, could be making )( moves not just on sentences but also words, paragraphs, ideas, etc...</p>
 				<p>The term "ackism" is used because it can easily be found by search engines. The term "racism" (not to be mistaken) has bagage attached to it differently than what HT is trying to accomplish; sacred hyroglyphs with forgeable blocks.</p>
-				<p>Other racing organizations, such as uci.org: the *governing* body of cycling around the world, has made attempts time and time again to destroy our belovid sport. Their false start & end lines, bogus mile markers, fake trophies/medals, and droned out spectators makes for a graffiti sestpool. You don't fool us: {up}ICU.</p>
-				<p>This brings us full circle back to, "Ready? Set. Go!" ... the system in place can work with you like "ART" and make you "HAHA" or you can build step pyramids, climb ladders, and be stuck in constant "TRASH" screaming "AHHH"; this is the ERA that we live in. Mention ackism to me on discord or anywhere else and I'd be happy to contune the discussion {up}THere.</p>
+				<p>Other racing organizations, such as uci.org: the *governing* body of cycling around the world, has made attempts time and time again to destroy our belovid sport. Their false start & end lines, bogus mile markers, fake trophies/medals, and droned out spectators makes for a sponsorship graffiti sestpool. You don't fool us: {up}ICU.</p>
+				<p>This brings us full circle back to, "Ready? Set. Go!" ... the system in place can work with you like "ART" and make you "HAHA" or you can build step pyramids [BTC], climb ladders [H], and be stuck in constant "TRASH" screaming "AHHH"; this is the ERA that we live in. Ping me about ackism on discord or anywhere else and I'd be happy to continue the discussion {up}THere.</p>
 			</Content>
 			<Title>#hacktracks.org</Title>
 			<Content>
@@ -43,7 +43,7 @@
   import {Label, Icon} from '@smui/common';
 	import {mdiConsoleLine} from '@mdi/js';
 	
-	let checkpoint = "{ acknologing checkpoints for competative enviornments }";
+	let race = "{ acknologing checkpoints within recursive enviornments }";
 	let hat = "{ puts on a sort of cheaters hat }";
 	let test = "() <--- test";
 	let mask = "{} <--- mask";
