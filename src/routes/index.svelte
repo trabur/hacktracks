@@ -13,7 +13,7 @@
 		<Paper elevation={5} style="background: #111; color: #ccc;">
 			<Title>Ready? Set. Go!</Title>
 			<Content>
-				<p>Painful or enjoyable... Trash or artistic... HT is about (race) {race}. To begin, let's back trace our steps to explain what is going on here...</p>
+				<p>Painful or enjoyable... Trash or artistic... HT is about (race) {race}; to begin, let's back trace our steps to explain what is going on here...</p>
 				<p>The culture around HT is as simple as mud. Think about family trees for a moment. Grandparents raise parents, parents raise children, children raise grandchildren, and so on. To best represent this data structure we can think of an "alphabet" where letter "A" makes rules for letter "B", letter "B" makes rules for letter "C", and so on. A culture deeply rooted in supervisor trees.</p>
 				<p>The officiating around HT is somewhat complicated. Measuring yourself before a race is good training but isn't the real thing. Measuring yourself durring a race may yeild better results. Try a simple math situation like 1 + 1: (The solution to this problem {math} can be solved in many different ways. You could have used a calculator. You could have looked back at what has already been said.) However you got it, when it comes to making rules, sometimes the best measurment can only be taken post race: [2].</p>
 				<p>The spirit around HT is about riding to win the race. Let's run a mock event, for demonstration purposes, with the above culture and officiating ideals. As riders roll up to the starting gate "officials" will pin numbers onto the racers like variables in a program such that A -> 1, B --> 2, C ---> 3, and so on...</p>
