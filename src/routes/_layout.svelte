@@ -27,7 +27,7 @@
           <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiVideoVintage}" />
+                <path d="{mdiConsole}" />
               </svg>
             </Icon>
           </IconButton>
@@ -49,7 +49,7 @@
           <IconButton href="https://github.com/hperrin/svelte-material-ui">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path d="{mdiVideoVintage}" />
+                <path d="{mdiConsole}" />
               </svg>
             </Icon>
           </IconButton>
@@ -115,7 +115,7 @@
   import {onMount, onDestroy} from 'svelte';
   import { writable } from 'svelte/store'
   import {stores} from '@sapper/app';
-  import {mdiStar, mdiVideoVintage, mdiMapOutline} from '@mdi/js';
+  import {mdiStar, mdiConsole, mdiMapOutline} from '@mdi/js';
   import './_app.scss';
   import TopAppBar, {Row, Section, Title} from '@smui/top-app-bar';
   import Drawer, {Content, Scrim, AppContent} from '@smui/drawer';
