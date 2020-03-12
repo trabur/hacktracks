@@ -33,6 +33,7 @@
 
 			</Content>
 		</Paper>
+    <ReadyToTry username={username} />
 	</div>
 </div>
 
@@ -42,7 +43,9 @@
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
   import {Label, Icon} from '@smui/common';
 	import {mdiConsoleLine} from '@mdi/js';
+	import ReadyToTry from '../components/ReadyToTry';
 	
+	let username = null;
 	let race = "{ acknologing checkpoints within recursive enviornments }";
 	let hat = "{ puts on a sort of cheaters hat }";
 	let test = "() <--- test";
