@@ -29,7 +29,7 @@
 			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
 				<h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>RACE GAMETYPES</h3>
 				<p style='margin: 0;'>
-					<strong>The #1</strong>, most downloaded gametype: RACETRACKS! Invludes spin-offs SUMOHOGS, BATTLETRACKS, etc...
+					<strong>The #1</strong>, most downloaded gametype: RACETRACKS! Includes spin-offs SUMOHOGS, BATTLETRACKS, etc...
 				</p>
 				<Button href='https://fleetgrid.com' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
 			</Paper>
