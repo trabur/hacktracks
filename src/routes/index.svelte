@@ -5,7 +5,7 @@
 </svelte:head>
 
 <div style="position: absolute; right: 0; left: 0;">
-	<div style="margin-bottom: -200px; box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); background: url('/master-chief.jpg'); height: 500px; background-position: top center; background-size: cover;"></div>
+	<div style="margin-bottom: -150px; box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); background: url('/master-chief.jpg'); height: 500px; background-position: top center; background-size: cover;"></div>
 	<div style="max-width: 900px; margin: 0 auto 5em;">
 		<div style='display: flex;' class="mobile hidden">
 			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
