@@ -18,20 +18,23 @@
 			Map Makers:
 		</h1>
 		{#each posts as post}
-			<Paper elevation={5} style="background: #111; color: #ccc;">
-				<Title>{post.gamertag}</Title>
+			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
+				<Title>{post.gamertag} <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: 15, kudos: 3]</span></Title>
 				<Content>
-					<p><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></p>
+					<p><a rel='prefetch' href='/map-makers/{post.slug}'>{post.title}</a></p>
 				</Content>
 			</Paper>
 			<br />
 		{/each}
+		<ReadyToMapMake username={username} />
 	</div>
 </div>
 
 
 <script>
 	import Paper, {Title, Subtitle, Content} from '@smui/paper';
+	import ReadyToMapMake from '../../components/ReadyToMapMake';
 	
 	export let posts;
+	let username = null;
 </script>
