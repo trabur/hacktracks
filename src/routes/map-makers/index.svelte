@@ -8,7 +8,7 @@
 
 
 <svelte:head>
-	<title>Map Makers - HackTracks.org</title>
+	<title>Map Makers - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div style="position: absolute; right: 0; left: 0;">

@@ -9,7 +9,7 @@
 
 
 <svelte:head>
-	<title>FLEETGRID: Privacy Policy</title>
+	<title>Privacy Policy - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div class="container">

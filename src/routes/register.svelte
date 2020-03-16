@@ -14,7 +14,7 @@
 </style>
 
 <svelte:head>
-	<title>Register - FLEETGRID</title>
+	<title>Register - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div class="container">

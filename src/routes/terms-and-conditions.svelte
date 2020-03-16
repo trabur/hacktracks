@@ -9,7 +9,7 @@
 
 
 <svelte:head>
-	<title>HT: Terms & Conditions</title>
+	<title>Terms & Conditions - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div class="container">

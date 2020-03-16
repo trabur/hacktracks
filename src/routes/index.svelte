@@ -1,7 +1,7 @@
 
 
 <svelte:head>
-	<title>HACKTRACKS</title>
+	<title>Welcome to, HACKTRACKS - HT</title>
 </svelte:head>
 
 <div style="position: absolute; right: 0; left: 0;">
@@ -64,7 +64,7 @@
 				<!--- <p>Brace yourself for story mode.</p> --->
 			</Content>
 		</Paper>
-    <ReadyToTry username={username} />
+    <ReadyToTry username={username} pub={pub} />
 	</div>
 </div>
 
@@ -78,6 +78,7 @@
 	import ReadyToTry from '../components/ReadyToTry';
 	
 	let username = null;
+	let pub = null;
 	let race = "{ acknologing checkpoints within recursive enviornments }";
 	let hat = "{ puts on a sort of cheaters hat }";
 	let test = "() <--- test";
@@ -96,6 +97,7 @@
 			console.log('hello,', user.put.alias)
 			console.log(user)
 			username = user.put.alias
+			pub = user.put.pub
 		})
 	})
 
