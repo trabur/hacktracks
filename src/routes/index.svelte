@@ -56,7 +56,7 @@
 				<p>Cycling also has the concept of single pace lines and double pace lines. If I where to pull charaters from the keyboard to best represent these pace lines then it would be --- and === respectively; do you see one group of three riders off the front (in a single pace line) and a pack behind them of six riders (in a double pace line)? </p>
 				<p>Slash. Slash. Slash. Let's say the wind direction changes (: then we have our single pace line riding like this / or \ and our double pace line riding like this // or \\ riders will then rotate clockwise or counter clockwise :) ... as a group it is better to rotate into the wind, so that as the leading rider peals off, draft is provided for the advancing riders. One could say controllers obay the same fluid dynamic laws.</p>
 				<p>What's fascinating about tournaments or events in general such as the "Tour de France" is the organization around traffic, routing, and safety. One thing in particular is the race caravan that follows the riders (: flagged as three dots everywhere in this script :) because the event travels over such vast distances officials on motorcycles are consrantly trying to block:traffic, flag+hazards, keep-it-safe, free=road=traffic... while repeating again and again until the race is over.</p>
-				<p>Forging maps from scratch sort of follows the same mechanics of running events like the TDF; WallRider, for instance, took two forgers a month to create from a blank canvas. It was the first map in H3 to feature a starting g:a:t:e, off-camber-turns, inter=locking=blocks, and a shield+door+elevator. Maps like these may first just start out as a simple turn but when multiple people start to join in game then turns, ramps, jumps, landings, etc... can be built, tested, and raced simultaneously.</p>
+				<p>Forging maps from scratch sort of follows the same mechanics of running events like the TDF; WallRider, for instance, took two forgers a month to create from a blank canvas. It was the first map in H3 to feature a starting g:a:t:e, off-camber-turns, inter=locking=blocks, and a shield+door+elevator. Maps like these may first just start out as a simple turn but when multiple people start to join in game then turns, ramps, jumps, landings, etc... become more and more fun, "{fun}".</p>
 				<p>This brings us full circle back to, "Ready? Set. Go!" ... the system in place can work with you like "ART" and make you "HAHA" or you can build step pyramids [BTC, ETC], climb ladders [H], and be stuck in constant "TRASH" screaming "AHHH"; crashing hurts! It is what it is = the (E(R)A) that we live in. Ping me about ackism on discord or anywhere else and I'd be happy to continue the discussion {up}THere.</p>
 			</Content>
 			<Title>#hacktracks.org</Title>
@@ -87,4 +87,5 @@
 	let clipped = "{ clipped pedal bike }";
 	let up = "<---";
 	let math = "{ 1 + 1 = 2 }";
+	let fun = "built (tested) { <and>raced simultaneously</and> }"
 </script>
