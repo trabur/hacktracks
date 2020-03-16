@@ -17,7 +17,7 @@
       </Section>
       <Section align="end" toolbar>
         {#if username}
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
+          <IconButton href="/map-makers">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiMapOutline}" />
@@ -39,7 +39,7 @@
             </Icon>
           </IconButton>
         {:else}
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
+          <IconButton href="/map-makers">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiMapOutline}" />
@@ -173,18 +173,23 @@
   let sections;
   let authSections = [
     {
-      name: 'Video Games',
+      name: 'Welcome',
       route: '/',
       indent: 0
     },
     {
-      name: 'Halo 3',
-      route: '/games/halo-3',
+      name: 'Track Maps',
+      route: '/map-makers',
       indent: 1
     },
     {
-      name: 'Halo Reach',
-      route: '/games/halo-reach',
+      name: 'Platforms',
+      route: '/platforms',
+      indent: 1
+    },
+    {
+      name: 'Race GAMETYPES',
+      route: '/racetypes',
       indent: 1
     },
     {
@@ -207,18 +212,23 @@
 
   let guestSections = [
     {
-      name: 'Video Games',
+      name: 'Welcome',
       route: '/',
       indent: 0
     },
     {
-      name: 'Halo 3',
-      route: '/games/halo-3',
+      name: 'Track Maps',
+      route: '/map-makers',
       indent: 1
     },
     {
-      name: 'Halo Reach',
-      route: '/games/halo-reach',
+      name: 'Platforms',
+      route: '/platforms',
+      indent: 1
+    },
+    {
+      name: 'Race GAMETYPES',
+      route: '/racetypes',
       indent: 1
     },
     {

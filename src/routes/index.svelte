@@ -14,7 +14,7 @@
 					<p style='margin: 0;'>
 						<strong>Includes maps featured on bungie favorites</strong>, plus maps such as WallRider, Over The Edge, and HT Challenges (easy-hard).
 					</p>
-					<Button on:click={() => console.log('test')} href='https://fleetgrid.com' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
+					<Button on:click={() => console.log('test')} href='/map-makers' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
 				</Content>
 			</Paper>
 			<div style="width: 1em;"></div>
@@ -23,7 +23,7 @@
 				<p style='margin: 0;'>
 					<strong>Mostly Halo 3 and Halo Reach</strong>, for the time being only consoles are supported (xbox); support for PC is coming soon.
 				</p>
-				<Button href='https://fleetgrid.com' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>view</Button>
+				<Button href='/platforms' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>view</Button>
 			</Paper>
 			<div style="width: 1em;"></div>
 			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
@@ -31,7 +31,7 @@
 				<p style='margin: 0;'>
 					<strong>The #1</strong>, most downloaded gametype: RACETRACKS! Includes spin-offs SUMOHOGS, BATTLETRACKS, etc...
 				</p>
-				<Button href='https://fleetgrid.com' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
+				<Button href='/gametypes' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
 			</Paper>
 		</div>
 		<h1 style="font-weight: 700; margin: 1em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
