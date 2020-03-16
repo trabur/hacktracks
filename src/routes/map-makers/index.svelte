@@ -19,9 +19,9 @@
 		</h1>
 		{#each posts as post}
 			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
-				<Title>{post.gamertag} <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: 15, kudos: 3]</span></Title>
+				<Title><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: 15, kudos: 3]</span></Title>
 				<Content>
-					<p><a rel='prefetch' href='/map-makers/{post.slug}'>{post.title}</a></p>
+					<p>map list here...</p>
 				</Content>
 			</Paper>
 			<br />
