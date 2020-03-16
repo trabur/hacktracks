@@ -11,8 +11,8 @@
 </svelte:head>
 
 <div style='width: 100%; overflow-x: hidden;'>
-  <div class="grid" style='height: 350px; max-width: 100%;'>
-    <div style={`height: 350px; background-image: url(${coverPhoto}); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;`}>
+  <div class="grid" style='height: 500px; max-width: 100%;'>
+    <div style={`height: 500px; background-image: url(${coverPhoto}); background-position: top center; background-size: cover; background-repeat: no-repeat;`}>
     </div>
   </div>
   <div class="top-app-bar-container flexor">
@@ -46,13 +46,8 @@
               </Icon>
               <Label>Chat</Label>
             </Button>
-            <Button variant="unelevated" href={`/chats/keyID/${slug}`} style='float: right;'>
-              <Icon>
-                <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                  <path d="{mdiShare}" />
-                </svg>
-              </Icon>
-              <Label>Follow</Label>
+            <Button variant="unelevated" style='float: right;'>
+              <Label>GAMERTAG</Label>
             </Button>
           </div>
           <TabBar tabs={navigation} let:tab bind:active style='margin: 0px; bottom: 0; position: absolute;'>
@@ -62,9 +57,6 @@
               {/if}
               {#if tab === 'Kudos :)'}
                 <Label>{tab} [{receivedCount}]</Label>
-              {/if}
-              {#if tab === 'Kudos (:'}
-                <Label>{tab} [{sentCount}]</Label>
               {/if}
             </Tab>
           </TabBar>
@@ -79,34 +71,11 @@
             <!-- {#if trustDistanceName}
               <span class='label label-default' style='float: right; margin: 0;'>{trustDistanceName}</span>
             {/if} -->
-            <span style='font-size: 1.5em; font-weight: 900;'>{slug}</span>
+            <span style='font-size: 1.5em; font-weight: 900; color: #ccc;'>{username}</span>
           </div>
           <Paper color="primary" style='margin-top: 1em;'>
             <Content>
-              <p style='margin: 0;'>Filter(s):</p>
-              <br />
-              <Group style='display: flex; margin-bottom: 0.5em;'>
-                <Button style='flex-grow: 1; min-width: 30px;' color='secondary' variant="unelevated">
-                  <Label>✕</Label>
-                </Button>
-                <Button style='background: #fff; flex-grow: 1; min-width: 30px;'>
-                  <Label>1</Label>
-                </Button>
-                <Button style='background: #fff; flex-grow: 1; min-width: 30px;'>
-                  <Label>2</Label>
-                </Button>
-              </Group>
-              <Group style='display: flex; margin-bottom: 0.5em;'>
-                <Button style='background: #fff; flex-grow: 1; min-width: 30px;'>
-                  <Label>3</Label>
-                </Button>
-                <Button style='background: #fff; flex-grow: 1; min-width: 30px;'>
-                  <Label>4</Label>
-                </Button>
-                <Button style='background: #fff; flex-grow: 1; min-width: 30px;'>
-                  <Label>∞</Label>
-                </Button>
-              </Group>
+              <p style='margin: 0;'>Some descriptive text about this gamer..... Some descriptive text about this gamer..... Some descriptive text about this gamer..... </p>
             </Content>
           </Paper>
           {#if slug === username}
@@ -137,21 +106,6 @@
                   {/if}
                 </div>
               {/each}
-            {/if}
-            {#if active === 'Kudos (:'}
-              <!-- {#each sent as s}
-                <div style='border-bottom: 1px solid #ccc; padding: 1em;'>
-                  {#if s.type === 'post'}
-                    <p>{s.text}</p>
-                  {:else if s.type === 'rating'}
-                    <p>{s.text}</p>
-                  {:else if s.type === 'verification'}
-                    {#each Object.keys(s.recipient) as key}
-                      <p><strong>{key}</strong>: {s.recipient[key]}</p>
-                    {/each}
-                  {/if}
-                </div>
-              {/each} -->
             {/if}
             {#if active === 'Maps'}
               <List class="demo-list" twoLine avatarList singleSelection bind:selectedIndex={selectionIndex}>
@@ -250,10 +204,10 @@
   let prominent = true;
   let dense = false;
   let secondaryColor = true;
-  let coverPhoto = './reach.jpg'
+  let coverPhoto = './master-chief.jpg'
   let identicon = new Identicon(sha256(slug), 420).toString();
   let trustDistanceName = null
-  let navigation = ['Maps', 'Kudos :)', 'Kudos (:']
+  let navigation = ['Maps', 'Kudos :)']
   let receivedCount = 0
   let sentCount = 0
   let identityCount = 0
@@ -263,5 +217,15 @@
   let active = 'Maps'
   let selectionIndex = null;
   let selectionTwoLine;
+
+	onMount(() => {
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+    let user = gun.user();
+    
+    gun.user(slug).once((data, key) => {
+      console.log('spawn point data: ', data)
+			username = data.alias
+    });
+	})
 
 </script>
