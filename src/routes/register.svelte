@@ -61,12 +61,6 @@
 	let username = '';
 	let password = '';
 	let passwordConfirm = '';
-	let gun;
-	// let user;
-
-	onMount(() => {
-    gun = new Gun(['https://gunjs.herokuapp.com/gun']);
-	})
 
 	function auth() {
 		if (password !== passwordConfirm) {
@@ -76,6 +70,7 @@
 			return alert('Agreement must be checked.')
 		}
 
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
     let user = gun.user();
 		user.create(username, password, (ack) => {
       console.log('ack', ack)

@@ -87,5 +87,17 @@
 	let clipped = "{ clipped pedal bike }";
 	let up = "<---";
 	let math = "{ 1 + 1 = 2 }";
-	let fun = "built (tested) { <and>raced simultaneously</and> }"
+	let fun = "built (tested) { <and>raced simultaneously</and> }";
+
+	onMount(() => {
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+		let user = gun.user();
+		user.recall({ sessionStorage: true }, (user) => {
+			console.log('hello,', user.put.alias)
+			console.log(user)
+			username = user.put.alias
+		})
+	})
+
+
 </script>

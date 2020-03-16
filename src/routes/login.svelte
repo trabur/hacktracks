@@ -54,14 +54,9 @@
 	let username = '';
 	let password = '';
 	let lostYourKey = false;
-	let gun;
-	// let user;
-
-	onMount(() => {
-    gun = new Gun(['https://gunjs.herokuapp.com/gun']);
-	})
 
 	function auth() {
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
     let user = gun.user();
 		user.auth(username, password, (ack) => {
 			console.log('ack', ack)
@@ -75,6 +70,7 @@
 				// on success calls callback with a reference to the gun user
 				console.log('success')
 				user.recall({ sessionStorage: true })
+				window.location.href = '/'
 			}
 		})
 	}
