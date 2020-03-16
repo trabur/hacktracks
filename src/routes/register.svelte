@@ -56,23 +56,17 @@
   import Checkbox from '@smui/checkbox';
 	import FormField from '@smui/form-field';
 	import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
-  // import { begin, start, broadcast, register, shutdown } from '../stores/phoenix';
-  import uuidv4 from 'uuid/v4';
 	
   let agreement = false;
 	let username = '';
 	let password = '';
 	let passwordConfirm = '';
-  let socket;
-  let channel;
-	let roomId = uuidv4();
+	let gun;
+	// let user;
 
 	onMount(() => {
-    // socket = begin()
-    // channel = start(socket, roomId)
-  })
-
-  // onDestroy(() => shutdown(socket, channel, roomId))
+    gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+	})
 
 	function auth() {
 		if (password !== passwordConfirm) {
@@ -81,6 +75,34 @@
 		if (!agreement) {
 			return alert('Agreement must be checked.')
 		}
-		// register(channel, roomId, username, password)
+
+    let user = gun.user();
+		user.create(username, password, (ack) => {
+      console.log('ack', ack)
+
+      if (ack.err) {
+        // {
+        //   err: // with one of 2 possible errors described below
+        // }
+        // If user is already being created: "User is already being created or authenticated!"
+        // If user already exists: "User already created!"
+        alert(ack.err)
+      } else {
+        // {
+        //   ok: 0,
+        //   pub: '"wFGe7hNFi6j0DYvngFc9TRIIhmAm3RpTaYTKKqu2P-k.p2ovroVP3Nwlt8I3k_1MtOVBV3dTY8qcwaSkU1qIB5Y"' //public key of the user that was just created
+        // }
+        // User is registered success
+        user.auth(username, password, (ack) => {
+          if (ack.err) {
+            alert(ack.err)
+          } else {
+            console.log('success')
+            user.recall({ sessionStorage: true })
+            window.location.href = '/'
+          }
+        })
+      }
+    })
 	}
 </script>

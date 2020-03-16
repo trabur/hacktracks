@@ -2,98 +2,59 @@
 import { writable } from 'svelte/store'
 
 export default class GunStore {
-  constructor(privateKey) {
-    this.gun = new Gun(['https://gun-us.herokuapp.com/gun', 'https://gun-eu.herokuapp.com/gun'])
+  constructor() {
+    this.gun = new Gun(['https://gunjs.herokuapp.com/gun'])
     this.user = this.gun.user()
     this.authentication = writable(null)
     this.contact = writable(null)
-    this.privateKeySerialized = privateKey || null
-    this.demoKeyID = 'Dh-X60XvlXhMZsFce-pzKUTQ_qHAuuSs3vQq8AOE0sk.KNANgABzsTFcHQnTAHzgkkRciAJIc9IU46QHx-JeB5U'
-    this.demoKeypair = `{
-      "pub": "Dh-X60XvlXhMZsFce-pzKUTQ_qHAuuSs3vQq8AOE0sk.KNANgABzsTFcHQnTAHzgkkRciAJIc9IU46QHx-JeB5U",
-      "priv": "Q3uvtaxp8_G2kup295o6isrpaMblAGDAi-JMDrdQ92g",
-      "epub": "HEoEUh415pPrq9_TBWJsiYZC84ibHDNj5PyO4rscE6o.Z3wpnqhAArE-70cYMcWQiac6pWq7xwVt69Q8lxGfE64",
-      "epriv": "H27N8kjHFatcdoZSdl6sSIneEa-6mC9Mz3WRBEQmFSc"
-    }`
   }
 
-  register(username) {
-    let user = {name: username}
-    irisLib.Key.generate().then((key) => {
-      let privateKey = key
-      let privateKeySerialized = irisLib.Key.toString(privateKey)
-      user.keyID = irisLib.Key.getId(privateKey)
-      // console.log('register', user)
-      this.loginWithKey(privateKeySerialized, user)
-    })
-  }
+  register(username, password) {
+    console.log('register')
+    this.user.create(username, password, (ack) => {
+      console.log('ack', ack)
 
-  loginWithKey(privateKeySerialized, self) {
-    let privateKey
-    if (privateKeySerialized) {
-      privateKey = irisLib.Key.fromString(privateKeySerialized)
-      localStorage.setItem('irisKey', privateKeySerialized)
-      this.privateKeySerialized = privateKeySerialized
-    } else {
-      if (this.privateKeySerialized) {
-        privateKey = irisLib.Key.fromString(this.privateKeySerialized)
+      if (ack.err) {
+        // {
+        //   err: // with one of 2 possible errors described below
+        // }
+        // If user is already being created: "User is already being created or authenticated!"
+        // If user already exists: "User already created!"
+        alert(ack.err)
       } else {
-        privateKey = null // irisLib.Key.fromString(this.demoKeypair)
-      }
-    }
-    let keyID = privateKey ? irisLib.Key.getId(privateKey) : null
-    let authentication = {}
-    authentication.user = {
-      idType: 'keyID',
-      idValue: keyID
-    }
-    let i = new irisLib.SocialNetwork({gun: this.gun, keypair: privateKey, self, debug: true})
-    i.ready.then(() => {
-      if (!keyID) { // only continue if this is logged in user
-      } else {
-        authentication.contact = i.get('keyID', keyID)
-        authentication.contact.gun.get('attrs').open((val, key, msg, eve) => {
-          let mostVerifiedAttributes = irisLib.Contact.getMostVerifiedAttributes(val)
-          authentication.contact.mostVerifiedAttributes = mostVerifiedAttributes
-          // console.log('authentication', authentication)
-          this.authentication.set(authentication)
-          if (mostVerifiedAttributes.profilePhoto) {eve.off()}
+        // {
+        //   ok: 0,
+        //   pub: '"wFGe7hNFi6j0DYvngFc9TRIIhmAm3RpTaYTKKqu2P-k.p2ovroVP3Nwlt8I3k_1MtOVBV3dTY8qcwaSkU1qIB5Y"' //public key of the user that was just created
+        // }
+        // User is registered success
+        this.user.auth(username, password, (ack) => {
+          if (ack.err) {
+            alert(ack.err)
+          } else {
+            console.log('success')
+            this.user.recall({ sessionStorage: true })
+            window.location.href = '/'
+          }
         })
       }
     })
   }
 
-  contactById(keyID) {
-    console.log('contactById', keyID)
-
-    let privateKey = null
-    if (this.privateKeySerialized) {
-      privateKey = irisLib.Key.fromString(this.privateKeySerialized)
-    } else {
-      privateKey = irisLib.Key.fromString(this.demoKeypair)
-    }
-
-    let i = new irisLib.SocialNetwork({gun: this.gun, keypair: privateKey, debug: true})
-    i.ready.then(() => {
-      let contact = i.get('keyID', keyID)
-      contact.gun.open((data) => {
-        this.contact.set(data)
-      })
+  login(username, password) {
+    console.log('login')
+    this.user.auth(username, password, (ack) => {
+      console.log('ack', ack)
+      if (ack.err) {
+        // on failure callback is called cb(ack) where ack is as below
+        // {
+        //     err: 'Wrong user or password.'
+        // }
+        alert(ack.err)
+      } else {
+        // on success calls callback with a reference to the gun user
+        console.log('success')
+        this.user.recall({ sessionStorage: true })
+      }
     })
-  }
-  
-  ordinalSuffixOf(i) {
-    var j = i % 10,
-        k = i % 100;
-    if (j == 1 && k != 11) {
-      return i + "st";
-    }
-    if (j == 2 && k != 12) {
-      return i + "nd";
-    }
-    if (j == 3 && k != 13) {
-      return i + "rd";
-    }
-    return i + "th";
   }
 }

@@ -50,24 +50,32 @@
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
   import Textfield, {Input, Textarea} from '@smui/textfield';
 	import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
-  // import { begin, start, broadcast, login, shutdown } from '../stores/phoenix';
-  import uuidv4 from 'uuid/v4';
 	
 	let username = '';
 	let password = '';
 	let lostYourKey = false;
-  let socket;
-  let channel;
-	let roomId = uuidv4();
+	let gun;
+	// let user;
 
 	onMount(() => {
-    // socket = begin()
-    // channel = start(socket, roomId)
-  })
+    gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+	})
 
-  // onDestroy(() => shutdown(socket, channel, roomId))
-	
 	function auth() {
-		// login(channel, roomId, username, password)
+    let user = gun.user();
+		user.auth(username, password, (ack) => {
+			console.log('ack', ack)
+			if (ack.err) {
+				// on failure callback is called cb(ack) where ack is as below
+				// {
+				//     err: 'Wrong user or password.'
+				// }
+				alert(ack.err)
+			} else {
+				// on success calls callback with a reference to the gun user
+				console.log('success')
+				user.recall({ sessionStorage: true })
+			}
+		})
 	}
 </script>
