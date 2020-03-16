@@ -39,7 +39,7 @@
 			{/if} -->
 		</form>
 	</Paper>
-	<p style="text-align: center;">-or-</p>
+	<p style="text-align: center; color: #ccc;">-or-</p>
 	<Group variant="outlined" style="display: flex; margin-bottom: 1em;">
 		<Button variant="outlined" href="/register" style="flex-grow: 1;"><Label>REGISTER</Label></Button>
 	</Group>

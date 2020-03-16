@@ -43,7 +43,7 @@
 			<Button type='submit' variant="unelevated"><Label>Submit</Label></Button>
 		</form>
 	</Paper>
-	<p style="text-align: center;">-or-</p>
+	<p style="text-align: center; color: #ccc;">-or-</p>
 	<Group variant="outlined" style="display: flex; margin-bottom: 1em;">
 		<Button variant="outlined" href="/login" style="flex-grow: 1;"><Label>LOGIN</Label></Button>
 	</Group>

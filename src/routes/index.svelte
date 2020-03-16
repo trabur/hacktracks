@@ -59,7 +59,7 @@
 			</Content>
 			<Title>#hacktracks.org</Title>
 			<Content>
-
+				<!--- <p>Brace yourself for story mode.</p> --->
 			</Content>
 		</Paper>
     <ReadyToTry username={username} />
