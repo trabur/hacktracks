@@ -24,14 +24,14 @@
               </svg>
             </Icon>
           </IconButton>
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
+          <IconButton href="/platforms">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiConsole}" />
               </svg>
             </Icon>
           </IconButton>
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
+          <IconButton href="/race-gametypes">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiStar}" />
@@ -46,14 +46,14 @@
               </svg>
             </Icon>
           </IconButton>
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
+          <IconButton href="/platforms">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiConsole}" />
               </svg>
             </Icon>
           </IconButton>
-          <IconButton href="https://github.com/hperrin/svelte-material-ui">
+          <IconButton href="/race-gametypes">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiStar}" />
