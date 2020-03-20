@@ -78,7 +78,7 @@
               <p style='margin: 0;'>Some descriptive text about this gamer..... Some descriptive text about this gamer..... Some descriptive text about this gamer..... </p>
             </Content>
           </Paper>
-          {#if slug === username}
+          {#if account === username}
             <br />
             <Group style='display: flex;'>
               <Button href="/settings" style='flex-grow: 1;' color='secondary' variant="unelevated">
@@ -195,7 +195,8 @@
   import sha256 from 'js-sha256'
   
   export let slug;
-  let username = ''
+  let username = '';
+  let account = 'HT';
 
 
   let profilePhoto;
@@ -222,10 +223,16 @@
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
     let user = gun.user();
     
+    user.recall({ sessionStorage: true }, (recalled) => {
+      console.log('recalled', recalled)
+      account = recalled.put.alias;
+    })
+
     gun.user(slug).once((data, key) => {
       console.log('spawn point data: ', data)
 			username = data.alias
     });
+    
 	})
 
 </script>
