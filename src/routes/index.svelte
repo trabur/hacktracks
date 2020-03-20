@@ -31,7 +31,7 @@
 				<p style='margin: 0;'>
 					<strong>The #1</strong>, most downloaded gametype: RACETRACKS! Includes spin-offs SUMOHOGS, BATTLETRACKS, etc...
 				</p>
-				<Button href='/gametypes' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
+				<Button href='/race-gametypes' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
 			</Paper>
 		</div>
 		<h1 style="font-weight: 700; margin: 1em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
