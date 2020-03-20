@@ -13,6 +13,9 @@
 </svelte:head>
 
 <div class="container">
+	<div style="display: block; position: relative; height: 200px;">
+		<ATCH />
+	</div>
 	<Paper elevation={5}>
     <h4>Terms and Conditions</h4>
     <h5>1. Terms</h5>
@@ -58,4 +61,5 @@
 
 <script>
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
+	import ATCH from '../components/ATCH';
 </script>

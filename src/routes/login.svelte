@@ -17,6 +17,9 @@
 </svelte:head>
 
 <div class="container">
+	<div style="display: block; position: relative; height: 200px;">
+		<ATCH />
+	</div>
 	<Paper elevation={5}>
 		<Title>Existing account:</Title>
 		<form on:submit|preventDefault={auth}>
@@ -50,6 +53,7 @@
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
   import Textfield, {Input, Textarea} from '@smui/textfield';
 	import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
+	import ATCH from '../components/ATCH';
 	
 	let username = '';
 	let password = '';

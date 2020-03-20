@@ -18,6 +18,9 @@
 </svelte:head>
 
 <div class="container">
+	<div style="display: block; position: relative; height: 200px;">
+		<ATCH />
+	</div>
 	<Paper elevation={5}>
 		<Title>Create account:</Title>
 		<form on:submit|preventDefault={auth}>
@@ -56,6 +59,7 @@
   import Checkbox from '@smui/checkbox';
 	import FormField from '@smui/form-field';
 	import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
+	import ATCH from '../components/ATCH';
 	
   let agreement = false;
 	let username = '';
