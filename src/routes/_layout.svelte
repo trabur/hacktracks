@@ -96,6 +96,9 @@
               <Chip tabindex="0">{chip}</Chip>
             </Set>
           </div>
+          <div style="display: block; position: relative; height: 200px;">
+            <ATCH />
+          </div>
         </Content>
       </Drawer>
     {/if}
@@ -131,7 +134,8 @@
   // import { boot, shutdown } from '../stores/phoenix';
   import jwt from 'jsonwebtoken';
   // import uuidv4 from 'uuid/v4';
-  import Header from '../components/HACKTRACKS/Header'
+  import Header from '../components/HACKTRACKS/Header';
+	import ATCH from '../components/ATCH';
 
   const {page} = stores();
   let mainContent;
