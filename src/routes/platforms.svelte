@@ -8,11 +8,11 @@
 	</div>
 	<div style="max-width: 900px; margin: 0 auto 5em;">
 		<h1 style="font-weight: 700; margin: 1em 0; color: #111; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
-			Platforms:
+			Games/Consoles:
 		</h1>
 		{#each posts as post}
 			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
-				<Title><a href={`/spawn-points/${post.id}`}>{post.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[games: 2, maps: 15]</span></Title>
+				<Title>{post.name} <span style="color: #aaa; float: right; font-size: 0.8em;">[games: 2, maps: 15]</span></Title>
 				<Content>
 					<p>game list here...</p>
 				</Content>
