@@ -15,7 +15,7 @@
   <h4 style="color: #ccc;">Settings</h4>
   <Paper color="primary" elevation={4}>
     <Title>Log out</Title>
-    <Content>You cannot log in back to this account unless you have saved a backup of your username and password or unless you have filled out the contact information below.</Content>
+    <Content>You cannot log in back to this account unless you have saved a backup of your username and password.</Content>
     <br />
     <Button on:click={() => logoutDialog.open()} style='background: #fff;'>Log out</Button>
     <Dialog bind:this={logoutDialog} style='color: #111;'>
