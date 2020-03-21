@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Spawn Point - HACKTRACKS - HT</title>
+  <title>{username || 'Spawn Point'} - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div style='width: 100%; overflow-x: hidden;'>
