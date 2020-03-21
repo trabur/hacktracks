@@ -22,11 +22,14 @@ const posts = [
 		gamertag: 'd minus c',
 		id: 'bf8iU08_3BHOO2jsoe_C4KI7J-XlZG2mdKL1WToZpaw.M6_bg5-byWC_OQQXwVWE51MY79pjVPIYGjUBnmIk314',
 		html: ``
-	},
+	}
 ];
 
 posts.forEach(post => {
 	post.html = post.html.replace(/^\t{3}/gm, '');
 });
+
+// the map makers list is randomized for fairness
+posts.sort(() => Math.random() - 0.5)
 
 export default posts;

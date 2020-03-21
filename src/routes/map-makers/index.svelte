@@ -1,11 +1,12 @@
 <script context="module">
 	export function preload({ params, query }) {
 		return this.fetch(`map-makers.json`).then(r => r.json()).then(posts => {
+			// the map makers list is randomized for fairness
+			posts.sort(() => Math.random() - 0.5)
 			return { posts };
 		});
 	}
 </script>
-
 
 <svelte:head>
 	<title>Map Makers - HACKTRACKS - HT</title>
@@ -29,7 +30,6 @@
 		<ReadyToMapMake username={username} />
 	</div>
 </div>
-
 
 <script>
 	import Paper, {Title, Subtitle, Content} from '@smui/paper';
