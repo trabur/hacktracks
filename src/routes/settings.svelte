@@ -8,7 +8,7 @@
 </style>
 
 <svelte:head>
-  <title>Settings - FLEETGRID</title>
+  <title>Settings - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div class="container">
