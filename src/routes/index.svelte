@@ -1,7 +1,7 @@
 
 
 <svelte:head>
-	<title>Welcome to, HACKTRACKS - HT</title>
+	<title>>>>----------[} HACKTRACKS - HT</title>
 </svelte:head>
 
 <div style="position: absolute; right: 0; left: 0;">
