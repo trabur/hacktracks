@@ -91,86 +91,29 @@
       <div style='width: 100%; position: relative; max-width: 100%;'>
         <div style='width: 100%; position: absolute; top: 0;'>
           <br class='mobile hidden tablet hidden' />
-          <Paper elevation={5} style='padding: 0;'>
-            {#if active === 'Kudos :)'}
-              {#each received as r}
-                <div style='border-bottom: 1px solid #ccc; padding: 1em;'>
-                  {#if r.type === 'post'}
-                    <p>{r.text}</p>
-                  {:else if r.type === 'rating'}
-                    <p>{r.text}</p>
-                  {:else if r.type === 'verification'}
-                    {#each Object.keys(r.recipient) as key}
-                      <p><strong>{key}</strong>: {r.recipient[key]}</p>
-                    {/each}
-                  {/if}
-                </div>
-              {/each}
-            {/if}
-            {#if active === 'Maps'}
-              <List class="demo-list" twoLine avatarList singleSelection bind:selectedIndex={selectionIndex}>
-                <!-- {#each identities as identity}
-                  <Item on:SMUI:action={() => selectionTwoLine = identity.name}>
-                    {#if identity.type === 'name'}
-                      <Graphic>
-                        <Button href={`/contacts/${identity.type}/${encodeURIComponent(identity.value)}`}>
-                          <Icon style='margin: 0 auto; color: #111;'>
-                            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                              <path d="{mdiAccount}" />
-                            </svg>
-                          </Icon>
-                        </Button>
-                      </Graphic>
-                    {:else if identity.type === 'keyID'}
-                      <Graphic>
-                        <Button href={`/contacts/${identity.type}/${encodeURIComponent(identity.value)}`}>
-                          <Icon style='margin: 0 auto; color: #111;'>
-                            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                              <path d="{mdiKey}" />
-                            </svg>
-                          </Icon>
-                        </Button>
-                      </Graphic>
-                    {:else}
-                      <Graphic>
-                        <Button href={`/contacts/${identity.type}/${encodeURIComponent(identity.value)}`}>
-                          <Icon style='margin: 0 auto; color: #111;'>
-                            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                              <path d="{mdiLink}" />
-                            </svg>
-                          </Icon>
-                        </Button>
-                      </Graphic>
-                    {/if}
-                    <Text>
-                      <PrimaryText style='color: #111; margin: -1em 0;'>{identity.value}</PrimaryText>
-                      <SecondaryText style='color: #888;'>{identity.type}</SecondaryText>
-                    </Text>
-                    <Meta style='position: absolute; right: 1em; z-index: 1;'>
-                      <Group style='display: flex; margin-bottom: 0.5em;'>
-                        <Button style='flex-grow: 1; min-width: 10px;' variant="unelevated" color="secondary">
-                          <Icon style='display: flex; margin: 0 auto;'>
-                            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                              <path d="{mdiCheck}" />
-                            </svg>
-                          </Icon>
-                          {identity.verifications}
-                        </Button>
-                        <Button style='flex-grow: 1; min-width: 10px;' variant="unelevated" color="secondary">
-                          <Icon style='display: flex; margin: 0 auto;'>
-                            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                              <path d="{mdiClose}" />
-                            </svg>
-                          </Icon>
-                          {identity.unverifications ? identity.unverifications : ''}
-                        </Button>
-                      </Group>
-                    </Meta>
-                  </Item>
-                {/each} -->
-              </List>
-            {/if}
-          </Paper>
+          {#if active === 'Maps'}
+            {#each maps as map}
+              <Paper elevation={5} style='padding: 0;'>
+                <p>{map.name}</p>
+              </Paper>
+            {/each}
+            <NewMap slug={slug} account={account} username={username} />
+          {/if}
+          {#if active === 'Kudos :)'}
+            {#each received as r}
+              <div style='border-bottom: 1px solid #ccc; padding: 1em;'>
+                {#if r.type === 'post'}
+                  <p>{r.text}</p>
+                {:else if r.type === 'rating'}
+                  <p>{r.text}</p>
+                {:else if r.type === 'verification'}
+                  {#each Object.keys(r.recipient) as key}
+                    <p><strong>{key}</strong>: {r.recipient[key]}</p>
+                  {/each}
+                {/if}
+              </div>
+            {/each}
+          {/if}
           <br class='mobile hidden tablet hidden' />
           <br class='mobile hidden tablet hidden' />
           <br class='mobile hidden tablet hidden' />
@@ -193,6 +136,7 @@
   import Chip, {Set, Checkmark, Text} from '@smui/chips';
   import List, {Item, Graphic, Meta, Separator, Subheader, PrimaryText, SecondaryText} from '@smui/list';
   import sha256 from 'js-sha256'
+  import NewMap from '../../components/NewMap'
   
   export let slug;
   let username = '';
@@ -218,6 +162,7 @@
   let active = 'Maps'
   let selectionIndex = null;
   let selectionTwoLine;
+  let maps = []
 
 	onMount(() => {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
@@ -233,6 +178,19 @@
 			username = data.alias
     });
     
+    let r = [];
+    gun.get(slug).get('hacktracks.org').get('maps').map().on((data, key) => {
+      r = r.filter((value, index) => {
+        return value._['#'] !== key
+      })
+      if (data === null) { // data was removed
+        console.log('ht maps', key)
+      } else if (data) { // data was added / updated
+        console.log('ht maps', data)
+        r = [data, ...r]
+      }
+      maps = r
+    })
 	})
 
 </script>
