@@ -53,10 +53,10 @@
           <TabBar tabs={navigation} let:tab bind:active style='margin: 0px; bottom: 0; position: absolute;'>
             <Tab {tab} minWidth>
               {#if tab === 'Maps'}
-                <Label>{tab} [{identityCount}]</Label>
+                <Label>{tab} [{mapsCount}]</Label>
               {/if}
               {#if tab === 'Kudos :)'}
-                <Label>{tab} [{receivedCount}]</Label>
+                <Label>{tab} [{kudosCount}]</Label>
               {/if}
             </Tab>
           </TabBar>
@@ -75,7 +75,7 @@
           </div>
           <Paper color="primary" style='margin-top: 1em;'>
             <Content>
-              <p style='margin: 0;'>Some descriptive text about this gamer..... Some descriptive text about this gamer..... Some descriptive text about this gamer..... </p>
+              <p style='margin: 0;'>{about}</p>
             </Content>
           </Paper>
           {#if account === username}
@@ -100,7 +100,7 @@
             <NewMap slug={slug} account={account} username={username} />
           {/if}
           {#if active === 'Kudos :)'}
-            {#each received as r}
+            <!-- {#each received as r}
               <div style='border-bottom: 1px solid #ccc; padding: 1em;'>
                 {#if r.type === 'post'}
                   <p>{r.text}</p>
@@ -112,7 +112,7 @@
                   {/each}
                 {/if}
               </div>
-            {/each}
+            {/each} -->
           {/if}
           <br class='mobile hidden tablet hidden' />
           <br class='mobile hidden tablet hidden' />
@@ -141,8 +141,6 @@
   export let slug;
   let username = '';
   let account = 'HT';
-
-
   let profilePhoto;
   let authentication;
   let contact;
@@ -151,18 +149,12 @@
   let secondaryColor = true;
   let coverPhoto = './master-chief.jpg'
   let identicon = new Identicon(sha256(slug), 420).toString();
-  let trustDistanceName = null
   let navigation = ['Maps', 'Kudos :)']
-  let receivedCount = 0
-  let sentCount = 0
-  let identityCount = 0
-  let identities = []
-  let sent = []
-  let received = []
+  let mapsCount = 0
+  let kudosCount = 0
   let active = 'Maps'
-  let selectionIndex = null;
-  let selectionTwoLine;
-  let maps = []
+  let maps = [];
+  let about = '';
 
 	onMount(() => {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
@@ -178,6 +170,11 @@
 			username = data.alias
     });
     
+    gun.get(slug).get('hacktracks.org').once((data, key) => {
+      console.log('user', data)
+      about = data.about
+    })
+
     let r = [];
     gun.get(slug).get('hacktracks.org').get('maps').map().on((data, key) => {
       r = r.filter((value, index) => {

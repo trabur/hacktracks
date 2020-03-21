@@ -1,16 +1,9 @@
 <style>
-
   .container {
 		margin: 0 auto;
 		padding: 1em;
 		min-width: 300px;
     max-width: 600px;
-  }
-  
-  #qrcode {
-    width: 100%;
-    height: 100%;
-    margin-top: 1em;
   }
 </style>
 
@@ -20,11 +13,9 @@
 
 <div class="container">
   <h4 style="color: #ccc;">Settings</h4>
-  <!-- <p>settings {JSON.stringify(authentication, null, 2)}</p> -->
   <Paper color="primary" elevation={4}>
     <Title>Log out</Title>
     <Content>You cannot log in back to this account unless you have saved a backup of your username and password or unless you have filled out the contact information below.</Content>
-    <br />
     <br />
     <Button on:click={() => logoutDialog.open()} style='background: #fff;'>Log out</Button>
     <Dialog bind:this={logoutDialog} style='color: #111;'>
@@ -46,21 +37,23 @@
   <br />
   <br />
   <Paper elevation={4}>
-    <Title>About me</Title>
-    <Content>Leave a short description about anything for others to see on your profile page.</Content>
+    <Title>About {account}:</Title>
+    <!-- <Content>Leave a short description about anything for others to see on your profile page.</Content> -->
+    <div>
+      <Textarea type='text' bind:value={about} label="about" variant="outlined" style="width: 100%;" />
+    </div>
     <br />
-    <Dialog bind:this={qrDialog} aria-labelledby="simple-title" aria-describedby="simple-content">
-      <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
-      <Title style='padding: 0.5em 0.5em 0;'>Private key</Title>
-      <Content style='padding: 0 0.5em;'>
-        <div id="qrcode"></div>
-      </Content>
-      <Actions>
-        <Button on:click={() => qrDialog.close()}>
-          <Label>Got it</Label>
-        </Button>
-      </Actions>
-    </Dialog>
+    <div>
+      <Textfield type='text' bind:value={gamertag} label="gamertag" variant="outlined" style="width: 100%;" />
+    </div>
+    <br />
+    <div>
+      <Textfield type='text' bind:value={discord} label="discord" variant="outlined" style="width: 100%;" />
+    </div>
+    <br />
+    <Button variant="unelevated" on:click={save} color='secondary' style='margin-top: 0.5em;'>
+      <Label>Save</Label>
+    </Button>
   </Paper>
   <br />
   <Button href='/terms-and-conditions' variant="unelevated" style='margin-top: 0.5em;'>
@@ -82,15 +75,31 @@
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
   import Dialog, {Actions, InitialFocus} from '@smui/dialog';
   import {Label} from '@smui/common';
+  import Textfield, {Input, Textarea} from '@smui/textfield';
   
-  let authentication;
-  let qrDialog;
   let logoutDialog;
+  let about = 'Leave a short description about anything for others to see on your profile page.';
+  let gamertag = '';
+  let discord = '';
+  let account = '';
+  let pub = '';
 
 	onMount(() => {
-		let script = document.createElement('script');
-    script.src = "https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"
-    document.head.append(script);
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+    let user = gun.user();
+    
+    user.recall({ sessionStorage: true }, (recalled) => {
+      console.log('recalled', recalled)
+      account = recalled.put.alias;
+      pub = recalled.put.pub;
+
+      gun.get(pub).get('hacktracks.org').once((data, key) => {
+        console.log('spawn point data: ', data)
+        about = data.about || about
+        gamertag = data.gamertag || ''
+        discord = data.discord || ''
+      });
+    })
   })
 
   function logout() {
@@ -99,40 +108,19 @@
     window.location.href = '/'
   }
 
-  const copyToClipBoard = () => {
-    const el = document.createElement('textarea');
-    el.value = JSON.stringify(authentication.identity.index.options.keypair, null, 2);
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    alert('Copied private key to clipboard.')
-  };
-  
-  let qrcode = false;
-  let qr;
-  function showQRCode() {
-    if (qr) return;
-    qr = new QRCode("qrcode", {
-      text: JSON.stringify(authentication.identity.index.options.keypair, null, 2),
-      width: 300,
-      height: 300,
-      colorDark : "#000000",
-      colorLight : "#ffffff",
-      correctLevel : QRCode.CorrectLevel.H
-    });
-    qrcode = !qrcode
-  };
+  function save() {
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
 
-  function exportToJsonFile() {
-    let dataStr = JSON.stringify(authentication.identity.index.options.keypair, null, 2);
-    let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    gun.get(pub).get('hacktracks.org').get('about').put(about).once((data, key) => {
+      console.log('new about', data)
+    })
 
-    let exportFileDefaultName = 'fleetgrid-private-key.json';
+    gun.get(pub).get('hacktracks.org').get('gamertag').put(gamertag).once((data, key) => {
+      console.log('new gamertag', data)
+    })
 
-    let linkElement = document.createElement('a');
-    linkElement.setAttribute('href', dataUri);
-    linkElement.setAttribute('download', exportFileDefaultName);
-    linkElement.click();
+    gun.get(pub).get('hacktracks.org').get('discord').put(discord).once((data, key) => {
+      console.log('new discord', data)
+    })
   }
 </script>
