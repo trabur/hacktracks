@@ -38,6 +38,13 @@
               </svg>
             </Icon>
           </IconButton>
+          <IconButton href={`/spawn-points/${pub}`}>
+            <Icon class="mdc-theme--secondary">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="{mdiAccount}" />
+              </svg>
+            </Icon>
+          </IconButton>
         {:else}
           <IconButton href="/map-makers">
             <Icon class="mdc-theme--secondary">
@@ -118,7 +125,7 @@
   import {onMount, onDestroy} from 'svelte';
   import { writable } from 'svelte/store'
   import {stores} from '@sapper/app';
-  import {mdiStar, mdiConsole, mdiMapOutline} from '@mdi/js';
+  import {mdiStar, mdiConsole, mdiMapOutline, mdiAccount} from '@mdi/js';
   import './_app.scss';
   import TopAppBar, {Row, Section, Title} from '@smui/top-app-bar';
   import Drawer, {Content, Scrim, AppContent} from '@smui/drawer';
@@ -144,34 +151,24 @@
   let mounted = false;
   let store;
   let searchAccounts = '';
-  let username;
-
+  let username = '';
+  let pub = '';
 
 	onMount(() => {
-    let token = localStorage.getItem('token')
-    if (token) {
-      let decoded = jwt.decode(token)
-      username = decoded.username
-      console.log('username:', username)
-    }
-
-    if (username) {
-      sections = authSections
-      sections[1].route = `/accounts/${username}`
-      setInterval(() => {
-        // companyId is set during loading of field service -> companies
-        let companyId = localStorage.getItem('companyId')
-        if (companyId) {
-          // set authSections
-          sections[3].route = `/field-service/companies/${companyId}`
-        }
-      }, 1000);
-    } else {
-      sections = guestSections
-    }
-
-    // boot(uuidv4()) // starts a random room
-    // onDestroy(() => shutdown())
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+    let user = gun.user();
+    
+		user.recall({ sessionStorage: true }, (user) => {
+			console.log('welcome,', user.put.pub)
+			username = user.put.alias
+      pub = user.put.pub
+      
+      if (username) {
+        sections = authSections
+      } else {
+        sections = guestSections
+      }
+    })
   })
 
   let sections;
