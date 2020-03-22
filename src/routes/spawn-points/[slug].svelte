@@ -90,11 +90,14 @@
       </div>
       <div style='width: 100%; position: relative; max-width: 100%;'>
         <div style='width: 100%; position: absolute; top: 0;'>
-          <br class='mobile hidden tablet hidden' />
+          <br />
           {#if active === 'Maps'}
             {#each maps as map}
-              <Paper elevation={5} style='padding: 0;'>
-                <p><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a></p>
+			        <Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; margin: 0 0 1em;">
+                <Content>
+                  <img src={map.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
+                </Content>
+                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[kudos: 3]</span></Title>
               </Paper>
             {/each}
             <NewMap slug={slug} account={account} username={username} />

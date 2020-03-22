@@ -22,7 +22,7 @@
 			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
 				<Title><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: 15, kudos: 3]</span></Title>
 				<Content>
-					<p>map list here...</p>
+					<img src={post.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={post.gamertag} />
 				</Content>
 			</Paper>
 			<br />
