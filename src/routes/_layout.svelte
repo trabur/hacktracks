@@ -159,7 +159,7 @@
     let user = gun.user();
     
     sections = guestSections
-    
+
 		user.recall({ sessionStorage: true }, (user) => {
 			console.log('welcome,', user.put.pub)
 			username = user.put.alias
@@ -179,7 +179,7 @@
       indent: 0
     },
     {
-      name: 'Track Maps',
+      name: 'Map Makers',
       route: '/map-makers',
       indent: 1
     },
@@ -218,7 +218,7 @@
       indent: 0
     },
     {
-      name: 'Track Maps',
+      name: 'Map Makers',
       route: '/map-makers',
       indent: 1
     },

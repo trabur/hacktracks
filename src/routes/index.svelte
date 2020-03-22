@@ -1,4 +1,20 @@
 
+<style>
+	.favorites {
+    padding: 0;
+    border-top: 1px solid #444;
+	}
+
+  .favorites .html {
+		display: block;
+    padding: 0.5em;
+    border-bottom: 1px solid #444;
+	}
+
+	.favorites .html .stats {
+		float: right;
+	}
+</style>
 
 <svelte:head>
 	<title>>>>----------[} HACKTRACKS - HT</title>
@@ -10,7 +26,7 @@
 		<div style='display: flex;' class="mobile hidden">
 			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
 				<Content>
-					<h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>TRACK MAPS</h3>
+					<h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>MAP MAKERS</h3>
 					<p style='margin: 0;'>
 						<strong>Includes maps featured on bungie favorites</strong>, plus maps such as WallRider, Over The Edge, and HT Challenges (easy-hard).
 					</p>
@@ -34,6 +50,13 @@
 				<Button href='/race-gametypes' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
 			</Paper>
 		</div>
+		<Paper elevation={5} style="background: #111; color: #ccc;">
+			<Title>HACKTRACKS Map Library:<span style="float: right;">(favorites)</span></Title>
+			<ol class="favorites">
+				{#each favorites as favorite}
+					<li class="html">{favorite.name}<span class="stats">[kudos: {favorite.kudos}, downloads: {favorite.downloads}]</span></li>
+				{/each}
+		</Paper>
 		<h1 style="font-weight: 700; margin: 1em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
 			From Ideas. To Checkpoints. With Forge.
 		</h1>
@@ -76,6 +99,32 @@
 	import {mdiConsoleLine} from '@mdi/js';
   import Button, {Group, GroupItem} from '@smui/button';
 	import ReadyToTry from '../components/ReadyToTry';
+
+	let favorites = [
+		{
+			name: "Speedway",
+			downloads: "15k",
+			kudos: "5"
+		},
+		{
+			name: "Over The Edge",
+			downloads: "15k",
+			kudos: "5"
+		},
+		{
+			name: "WallRider",
+			downloads: "15k",
+			kudos: "5"
+		},
+		{
+			name: "HauntedRider",
+			downloads: "15k",
+			kudos: "5"
+		},
+	]
+
+	// the favorites list is randomized for fairness
+	favorites.sort(() => Math.random() - 0.5)
 	
 	let username = null;
 	let pub = null;
