@@ -200,6 +200,12 @@
       indent: 0
     },
     {
+      name: 'Code on Github',
+      route: 'https://github.com/trabur/hacktracks',
+      target: '_blank',
+      indent: 0
+    },
+    {
       name: 'Terms & Conditions',
       route: '/terms-and-conditions',
       indent: 0
@@ -235,6 +241,12 @@
     {
       name: 'Chat on Discord',
       route: 'https://discord.gg/HXPq4d',
+      target: '_blank',
+      indent: 0
+    },
+    {
+      name: 'Code on Github',
+      route: 'https://github.com/trabur/hacktracks',
       target: '_blank',
       indent: 0
     },
