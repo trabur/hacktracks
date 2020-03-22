@@ -158,6 +158,8 @@
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
     let user = gun.user();
     
+    sections = guestSections
+    
 		user.recall({ sessionStorage: true }, (user) => {
 			console.log('welcome,', user.put.pub)
 			username = user.put.alias
@@ -165,8 +167,6 @@
       
       if (username) {
         sections = authSections
-      } else {
-        sections = guestSections
       }
     })
   })

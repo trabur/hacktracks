@@ -94,7 +94,7 @@
           {#if active === 'Maps'}
             {#each maps as map}
               <Paper elevation={5} style='padding: 0;'>
-                <p>{map.name}</p>
+                <p><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a></p>
               </Paper>
             {/each}
             <NewMap slug={slug} account={account} username={username} />
