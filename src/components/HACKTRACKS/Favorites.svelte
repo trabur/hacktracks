@@ -17,7 +17,7 @@
 </style>
 
 <Paper elevation={5} style="background: #111; color: #ccc;">
-  <Title>HACKTRACKS Map Library:<span style="float: right;">(favorites)</span></Title>
+  <Title><span class="mobile hidden">HACKTRACKS</span> Map Library:<span style="float: right;">(favorites)</span></Title>
   <ol class="favorites">
     {#each favorites as favorite}
       <li class="html">{favorite.name}<span class="stats">[kudos: {favorite.kudos}, downloads: {favorite.downloads}]</span></li>
