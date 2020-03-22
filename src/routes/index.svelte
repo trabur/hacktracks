@@ -1,21 +1,3 @@
-
-<style>
-	.favorites {
-    padding: 0;
-    border-top: 1px solid #444;
-	}
-
-  .favorites .html {
-		display: block;
-    padding: 0.5em;
-    border-bottom: 1px solid #444;
-	}
-
-	.favorites .html .stats {
-		float: right;
-	}
-</style>
-
 <svelte:head>
 	<title>>>>----------[} HACKTRACKS - HT</title>
 </svelte:head>
@@ -50,13 +32,7 @@
 				<Button href='/race-gametypes' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
 			</Paper>
 		</div>
-		<Paper elevation={5} style="background: #111; color: #ccc;">
-			<Title>HACKTRACKS Map Library:<span style="float: right;">(favorites)</span></Title>
-			<ol class="favorites">
-				{#each favorites as favorite}
-					<li class="html">{favorite.name}<span class="stats">[kudos: {favorite.kudos}, downloads: {favorite.downloads}]</span></li>
-				{/each}
-		</Paper>
+		<Favorites />
 		<h1 style="font-weight: 700; margin: 1em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
 			From Ideas. To Checkpoints. With Forge.
 		</h1>
@@ -99,33 +75,8 @@
 	import {mdiConsoleLine} from '@mdi/js';
   import Button, {Group, GroupItem} from '@smui/button';
 	import ReadyToTry from '../components/ReadyToTry';
+	import Favorites from '../components/HACKTRACKS/Favorites';
 
-	let favorites = [
-		{
-			name: "Speedway",
-			downloads: "15k",
-			kudos: "5"
-		},
-		{
-			name: "Over The Edge",
-			downloads: "15k",
-			kudos: "5"
-		},
-		{
-			name: "WallRider",
-			downloads: "15k",
-			kudos: "5"
-		},
-		{
-			name: "HauntedRider",
-			downloads: "15k",
-			kudos: "5"
-		},
-	]
-
-	// the favorites list is randomized for fairness
-	favorites.sort(() => Math.random() - 0.5)
-	
 	let username = null;
 	let pub = null;
 	let race = "{ acknologing checkpoints within recursive enviornments }";
@@ -149,6 +100,4 @@
 			pub = user.put.pub
 		})
 	})
-
-
 </script>
