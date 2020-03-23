@@ -30,7 +30,7 @@
         <div class='mobile only tablet only' style='width: 1em;'></div>
         <div style='flex: 1; flex-direction: column; position: relative; width: 100%;'>
           <div style='margin: 1em 0 0; position: absolute; top: 0; left: 0; right: 0;'>
-            <Button variant="unelevated">
+            <Button variant="unelevated" on:click={() => communicateDialog.open()}>
               <Icon>
                 <svg style="width:18px;height:18px" viewBox="0 0 24 24">
                   <path d="{mdiQrcode}" />
@@ -38,7 +38,7 @@
               </Icon>
               <Label>Share</Label>
             </Button>
-            <Button variant="unelevated" href={`/chats/keyID/${slug}`}>
+            <Button variant="unelevated" on:click={() => communicateDialog.open()}>
               <Icon>
                 <svg style="width:18px;height:18px" viewBox="0 0 24 24">
                   <path d="{mdiChat}" />
@@ -46,7 +46,7 @@
               </Icon>
               <Label>Chat</Label>
             </Button>
-            <Button variant="unelevated" style='float: right;'>
+            <Button variant="unelevated" style='float: right;' on:click={() => communicateDialog.open()}>
               <Label>GAMERTAG</Label>
             </Button>
           </div>
@@ -120,6 +120,27 @@
           <br class='mobile hidden tablet hidden' />
           <br class='mobile hidden tablet hidden' />
           <br class='mobile hidden tablet hidden' />
+          <Dialog bind:this={communicateDialog} style='color: #111;'>
+            <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+            <Title style='padding: 0.5em 0.5em 0; text-align: center'>({username})</Title>
+            <Title style='padding: 0.5em 0.5em 0;'>share profile url:</Title>
+            <Content style='padding: 0 0.5em;'>
+              https://hacktracks.org/spawn-points/{slug}
+            </Content>
+            <Title style='padding: 0.5em 0.5em 0;'>chat on discord:</Title>
+            <Content style='padding: 0 0.5em;'>
+              {discord}
+            </Content>
+            <Title style='padding: 0.5em 0.5em 0;'>xbox live gamertag:</Title>
+            <Content style='padding: 0 0.5em;'>
+              {gamertag}
+            </Content>
+            <Actions>
+              <Button on:click={() => communicateDialog.close()}>
+                <Label>Okay</Label>
+              </Button>
+            </Actions>
+          </Dialog>
         </div>
       </div>
     </div>
@@ -138,8 +159,9 @@
   import Paper, {Subtitle, Content} from '@smui/paper';
   import Chip, {Set, Checkmark, Text} from '@smui/chips';
   import List, {Item, Graphic, Meta, Separator, Subheader, PrimaryText, SecondaryText} from '@smui/list';
-  import sha256 from 'js-sha256'
-  import NewMap from '../../components/NewMap'
+  import sha256 from 'js-sha256';
+  import NewMap from '../../components/NewMap';
+  import Dialog, {Actions, InitialFocus} from '@smui/dialog';
   
   export let slug;
   let username = '';
@@ -158,6 +180,9 @@
   let active = 'Maps'
   let maps = [];
   let about = '';
+  let communicateDialog;
+  let gamertag = '';
+  let discord = '';
 
 	onMount(() => {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
@@ -176,6 +201,8 @@
     gun.get(slug).get('hacktracks.org').once((data, key) => {
       console.log('user', data)
       about = data.about
+      gamertag = data.gamertag
+      discord = data.discord
     })
 
     let r = [];
