@@ -52,7 +52,7 @@
 				<p>M = ACK. The thing about cycling or going round and round a track is that you have options. Most riders may just be riding a {push} as if they are reading (left to right) ---> (top to bottom) ---> [Z]. There is also the {clipped} where riders may push down --->) and ({up} pull up while [Z]. Experienced riders, depending on the fassion, could be making )( moves not just on sentences but also words, paragraphs, ideas, etc...</p>
 				<p>The term "ackism" is used because it can easily be found by search engines. The term "racism" (not to be mistaken) has bagage attached to it differently than what HT is trying to accomplish; sacred hyroglyphs with forgeable blocks.</p>
 				<p>Other racing organizations, such as uci.org: the international cycling union *governing* body, has made attempts time and time again to destroy our belovid sport. Their false start & end lines, bogus mile markers, fake trophies/medals, and droned out spectators makes for a sponsorship graffiti sestpool :| ICU |: eye see you.</p>
-				<!-- <p>Speaking within simple terms (eye + eye = ?): well, scientifically speaking would leave us going in circles, so maTH terms will be used here, such as "look-forward" and "look-backward" || "{lookForward}" and ">" statements; now emagine a garbadge collector running around like {pacman} C>L>E>A>N>I>N>G up the script.</p> -->
+				<!-- <p>This eye + eye + ... well, science leaves nothing but circular logic ----> ... make, test, repeat ... make, test, repeat ... ----> therefor math or "m" at "h" will be used. As you can see, with every new era, somethings will work and somethings will break. Therefor terms such as "look-forward" and "look-backward" || "{lookForward}" and ">" statements and #brakes are a "forgers" tools of the trade; Here's The Thing: understanding HT's Temperature/Pressure is like trying to get a dregree in something beyond rocket science "\_(*_*)_/" now here is a simple garbadge collector ({pacman}) {gc}.</p> -->
 				<p>Cycling also has the concept of single pace lines and double pace lines. If I where to pull charaters from the keyboard to best represent these pace lines then it would be --- and === respectively; do you see one group of three riders off the front (in a single pace line) and a pack behind them of six riders (in a double pace line)? </p>
 				<p>Slash. Slash. Slash. Let's say the wind direction changes (: then we have our single pace line riding like this / or \ and our double pace line riding like this // or \\ riders will then rotate clockwise or counter clockwise :) ... as a group it is better to rotate into the wind, so that as the leading rider peals off, draft is provided for the advancing riders. One could say controllers obay the same fluid dynamic laws.</p>
 				<p>What's fascinating about tournaments or events in general such as the "Tour de France" is the organization around traffic, routing, and safety. One thing in particular is the race caravan that follows the riders (: flagged as three dots everywhere in this script :) because the event travels over such vast distances officials on motorcycles are consrantly trying to block:traffic, flag+hazards, keep-it-safe, free=road=traffic... while repeating again and again until the race is over.</p>
@@ -91,7 +91,8 @@
 	let math = "{ 1 + 1 = 2 }";
 	let fun = "built (tested) { <and>raced simultaneously</and> }";
 	let lookForward = "<";
-	let pacman = "<p>PAC-MAN</p>";
+	let pacman = "PAC-MAN";
+	let gc = "{ <p>running around C>L>E>A>N>I>N>G up the script</p> }";
 
 	onMount(() => {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
