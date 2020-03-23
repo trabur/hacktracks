@@ -5,37 +5,15 @@
 <div style="position: absolute; right: 0; left: 0;">
 	<div style="margin-bottom: -150px; box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); background: url('/reach.jpg'); height: 500px; background-position: 60% 90%; background-size: cover;"></div>
 	<div style="max-width: 900px; margin: 0 auto 5em;">
-		<div style='display: flex;' class="mobile hidden">
-			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
-				<Content>
-					<h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>MAP MAKERS</h3>
-					<p style='margin: 0;'>
-						<strong>Includes maps featured on bungie favorites</strong>, plus maps such as WallRider, Over The Edge, and HT Challenges (easy-hard).
-					</p>
-					<Button on:click={() => console.log('test')} href='/map-makers' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
-				</Content>
-			</Paper>
-			<div style="width: 1em;"></div>
-			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
-				<h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>PLATFORMS</h3>
-				<p style='margin: 0;'>
-					<strong>Mostly Halo 3 and Halo Reach</strong>, for the time being only consoles are supported (xbox); support for PC is coming soon.
-				</p>
-				<Button href='/platforms' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>view</Button>
-			</Paper>
-			<div style="width: 1em;"></div>
-			<Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
-				<h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>RACE GAMETYPES</h3>
-				<p style='margin: 0;'>
-					<strong>The #1</strong>, most downloaded gametype: RACETRACKS! Includes spin-offs SUMOHOGS, BATTLETRACKS, etc...
-				</p>
-				<Button href='/race-gametypes' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>checkout</Button>
-			</Paper>
-		</div>
-		<Favorites />
-		<h1 style="font-weight: 700; margin: 1em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
+		<h1 style="font-weight: 700; margin: 0.5em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
 			From Ideas. To Checkpoints. With Forge.
 		</h1>
+		<Options />
+		<Favorites />
+		<div style="margin: 1em 0; display: flex;">
+			<MostKudos />
+			<MostRecent />
+		</div>
 		<Paper elevation={5} style="background: #111; color: #ccc;">
 			<Title>Ready? Set. Go!</Title>
 			<Content>
@@ -75,7 +53,10 @@
 	import {mdiConsoleLine} from '@mdi/js';
   import Button, {Group, GroupItem} from '@smui/button';
 	import ReadyToTry from '../components/ReadyToTry';
+	import Options from '../components/HACKTRACKS/Options';
 	import Favorites from '../components/HACKTRACKS/Favorites';
+	import MostKudos from '../components/HACKTRACKS/MostKudos';
+	import MostRecent from '../components/HACKTRACKS/MostRecent';
 
 	let username = null;
 	let pub = null;

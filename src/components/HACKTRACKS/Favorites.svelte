@@ -20,33 +20,35 @@
   <Title><span class="mobile hidden">HACKTRACKS</span> Map Library:<span style="float: right;">(favorites)</span></Title>
   <ol class="favorites">
     {#each favorites as favorite}
-      <li class="html">{favorite.name}<span class="stats">[kudos: {favorite.kudos}, downloads: {favorite.downloads}]</span></li>
+      <li class="html">{favorite.name}<span class="stats">[kudos: {favorite.kudos}, replies: {favorite.replies}]</span></li>
     {/each}
+	</ol>
 </Paper>
 
 <script>
 	import { onMount, onDestroy } from 'svelte';
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
 
+	// no more than four maps allowed!
 	let favorites = [
 		{
 			name: "Speedway",
-			downloads: "15k",
+			replies: "3",
 			kudos: "5"
 		},
 		{
 			name: "Over The Edge",
-			downloads: "15k",
+			replies: "3",
 			kudos: "5"
 		},
 		{
 			name: "WallRider",
-			downloads: "15k",
+			replies: "3",
 			kudos: "5"
 		},
 		{
 			name: "HauntedRider",
-			downloads: "15k",
+			replies: "3",
 			kudos: "5"
 		},
 	]
