@@ -41,7 +41,7 @@
 					name: 'Halo 3',
 					maps: 10,
 					kudos: 2
-				},{
+				}, {
 					name: 'Halo Reach',
 					maps: 12,
 					kudos: 2
@@ -56,7 +56,7 @@
 					name: 'Halo 3',
 					maps: 10,
 					kudos: 2
-				},{
+				}, {
 					name: 'Halo Reach',
 					maps: 12,
 					kudos: 2
