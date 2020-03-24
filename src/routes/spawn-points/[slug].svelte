@@ -172,12 +172,12 @@
   let prominent = true;
   let dense = false;
   let secondaryColor = true;
-  let coverPhoto = './master-chief.jpg'
+  let coverPhoto = './master-chief.jpg';
   let identicon = new Identicon(sha256(slug), 420).toString();
   let navigation = ['Maps', 'Kudos :)']
-  let mapsCount = 0
-  let kudosCount = 0
-  let active = 'Maps'
+  let mapsCount = 0;
+  let kudosCount = 0;
+  let active = 'Maps';
   let maps = [];
   let about = '';
   let communicateDialog;
