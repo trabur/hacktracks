@@ -2,11 +2,11 @@
 <div style='display: flex;' class="mobile hidden">
   <Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
     <Content>
-      <h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>MAP MAKERS</h3>
+      <h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>THE LIBRARY</h3>
       <p style='margin: 0;'>
         <strong>Includes maps featured on bungie favorites</strong>, plus maps such as WallRider, Over The Edge, and HT Challenges (easy-hard).
       </p>
-      <Button href='/map-makers' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
+      <Button href='/library' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
     </Content>
   </Paper>
   <div style="width: 1em;"></div>

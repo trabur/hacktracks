@@ -1,6 +1,6 @@
 <script context="module">
 	export function preload({ params, query }) {
-		return this.fetch(`map-makers.json`).then(r => r.json()).then(posts => {
+		return this.fetch(`library.json`).then(r => r.json()).then(posts => {
 			// the map makers list is randomized for fairness
 			posts.sort(() => Math.random() - 0.5)
 			return { posts };
@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Map Makers - HACKTRACKS - HT</title>
+	<title>The Library - HACKTRACKS - HT</title>
 </svelte:head>
 
 <div style="position: absolute; right: 0; left: 0;">

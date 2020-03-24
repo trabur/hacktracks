@@ -21,7 +21,7 @@
       </Section>
       <Section align="end" toolbar>
         {#if username}
-          <IconButton href="/map-makers">
+          <IconButton href="/library">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiMapOutline}" />
@@ -50,7 +50,7 @@
             </Icon>
           </IconButton>
         {:else}
-          <IconButton href="/map-makers">
+          <IconButton href="/library">
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiMapOutline}" />
@@ -183,8 +183,8 @@
       indent: 0
     },
     {
-      name: 'Map Makers',
-      route: '/map-makers',
+      name: 'The Library',
+      route: '/library',
       indent: 1
     },
     {
@@ -228,8 +228,8 @@
       indent: 0
     },
     {
-      name: 'Map Makers',
-      route: '/map-makers',
+      name: 'The Library',
+      route: '/library',
       indent: 1
     },
     {
