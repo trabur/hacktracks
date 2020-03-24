@@ -74,6 +74,7 @@
 </div>
 
 <script>
+	import { onMount } from 'svelte';
 	import Paper, {Title, Subtitle, Content} from '@smui/paper';
 	import ReadyToMapMake from '../../components/ReadyToMapMake';
 	import ReadyToMapTest from '../../components/ReadyToMapTest';
@@ -85,6 +86,13 @@
   let clicked = 0;
 	let username = null;
 	let mode = '#map-makers';
+
+	onMount(() => {
+    // google analytics
+    gtag('config', 'UA-161516824-1', {
+      'page_path': window.location.pathname
+    });
+	})
 </script>
 
 <style>

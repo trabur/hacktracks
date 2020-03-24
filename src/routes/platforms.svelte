@@ -29,6 +29,7 @@
 
 
 <script>
+	import { onMount, onDestroy } from 'svelte';
 	import Paper, {Title, Subtitle, Content} from '@smui/paper';
 	import MakersToTypes from '../components/MakersToTypes';
 	
@@ -65,6 +66,13 @@
 		},
 	]
 	let username = null;
+
+	onMount(() => {
+    // google analytics
+    gtag('config', 'UA-161516824-1', {
+      'page_path': window.location.pathname
+    });
+	})
 </script>
 
 <style>

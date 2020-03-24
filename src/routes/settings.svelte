@@ -100,6 +100,11 @@
         discord = data.discord || ''
       });
     })
+    
+    // google analytics
+    gtag('config', 'UA-161516824-1', {
+      'page_path': window.location.pathname
+    });
   })
 
   function logout() {
