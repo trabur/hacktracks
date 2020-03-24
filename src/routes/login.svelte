@@ -73,8 +73,10 @@
 			} else {
 				// on success calls callback with a reference to the gun user
 				console.log('success')
-				user.recall({ sessionStorage: true })
-				window.location.href = '/'
+				user.recall({ sessionStorage: true }, (user) => {
+					console.log('recall', user.put.alias)
+					window.location.href = `/spawn-points/${user.put.pub}`
+				})
 			}
 		})
 	}

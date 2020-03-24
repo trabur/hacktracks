@@ -71,6 +71,13 @@
               </svg>
             </Icon>
           </IconButton>
+          <IconButton href={`/register`}>
+            <Icon class="mdc-theme--secondary">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="{mdiAccount}" />
+              </svg>
+            </Icon>
+          </IconButton>
         {/if}
       </Section>
     </Row>
