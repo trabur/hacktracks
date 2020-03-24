@@ -1,9 +1,18 @@
 <script context="module">
 	export function preload({ params, query }) {
 		return this.fetch(`library.json`).then(r => r.json()).then(posts => {
-			// the map makers list is randomized for fairness
+			// the library list is randomized for fairness
 			posts.sort(() => Math.random() - 0.5)
-			return { posts };
+			let mapMakers = posts.filter((post) => {
+				return post.mapMaker === true
+			})
+			let testers = posts.filter((post) => {
+				return post.tester === true
+			})
+			let leads = posts.filter((post) => {
+				return post.lead === true
+			})
+			return { mapMakers, testers, leads };
 		});
 	}
 </script>
@@ -19,34 +28,78 @@
 			The Library:
 		</h1>
 		<Paper elevation={5} style="background: #F8C040; color: #000; padding: 1em;">
-
 			<Group variant="outlined" style="display: flex;">
 				<Button on:click={() => mode = "#map-makers"} variant="unelevated" color={mode === "#map-makers" ? "primary": "secondary"} style="flex-grow: 1;"><Label>#map-makers</Label></Button>
 				<Button on:click={() => mode = "@testers"} variant="unelevated" color={mode === "@testers" ? "primary": "secondary"} style="flex-grow: 1;"><Label>@testers</Label></Button>
-				<Button on:click={() => mode = "^Leads"} variant="unelevated" color={mode === "^Leads" ? "primary": "secondary"} style="flex-grow: 1;"><Label>^Leads</Label></Button>
+				<Button on:click={() => mode = "^leads"} variant="unelevated" color={mode === "^leads" ? "primary": "secondary"} style="flex-grow: 1;"><Label>^leads</Label></Button>
 			</Group>
 		</Paper>
 		<br />
-		{#each posts as post}
+		{#if mode === "#map-makers"}
+			{#each mapMakers as post}
+				<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
+					<Title><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></Title>
+					<Content>
+						<img src={post.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={post.gamertag} />
+					</Content>
+				</Paper>
+				<br />
+			{/each}
+			<ReadyToMapMake />
+		{/if}
+		{#if mode === "@testers"}
 			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
-				<Title><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: 15, kudos: 3]</span></Title>
-				<Content>
-					<img src={post.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={post.gamertag} />
-				</Content>
+				<ol class="posts">
+					{#each testers as post}
+						<li class="html"><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span class="stats">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></li>
+					{/each}
+				</ol>
 			</Paper>
 			<br />
-		{/each}
-		<ReadyToMapMake username={username} />
+			<ReadyToMapTest />
+		{/if}
+		{#if mode === "^leads"}
+			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
+				<ol class="posts">
+					{#each leads as post}
+						<li class="html"><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span class="stats">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></li>
+					{/each}
+				</ol>
+			</Paper>
+			<br />
+			<br />
+			<br />
+		{/if}
 	</div>
 </div>
 
 <script>
 	import Paper, {Title, Subtitle, Content} from '@smui/paper';
 	import ReadyToMapMake from '../../components/ReadyToMapMake';
+	import ReadyToMapTest from '../../components/ReadyToMapTest';
   import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
 	
-	export let posts;
+	export let mapMakers;
+	export let testers;
+	export let leads;
   let clicked = 0;
 	let username = null;
 	let mode = '#map-makers';
 </script>
+
+<style>
+	.posts {
+    padding: 0;
+    border-top: 1px solid #444;
+	}
+
+  .posts .html {
+		display: block;
+    padding: 0.5em;
+    border-bottom: 1px solid #444;
+	}
+
+	.posts .html .stats {
+		float: right;
+	}
+</style>

@@ -10,16 +10,31 @@
 const posts = [
 	{
 		gamertag: 'c u l8er',
+		mapMaker: true,
+		tester: true,
+		lead: false,
+		mapsMade: 5,
+		kudosGiven: 15,
 		id: 'bf8iU08_3BHOO2jsoe_C4KI7J-XlZG2mdKL1WToZpaw.M6_bg5-byWC_OQQXwVWE51MY79pjVPIYGjUBnmIk314',
 		html: ``
 	},
 	{
 		gamertag: 'killer200O',
+		mapMaker: true,
+		tester: true,
+		lead: false,
+		mapsMade: 5,
+		kudosGiven: 15,
 		id: 'bf8iU08_3BHOO2jsoe_C4KI7J-XlZG2mdKL1WToZpaw.M6_bg5-byWC_OQQXwVWE51MY79pjVPIYGjUBnmIk314',
 		html: ``
 	},
 	{
 		gamertag: 'd minus c',
+		mapMaker: false,
+		tester: false,
+		lead: true,
+		mapsMade: 5,
+		kudosGiven: 15,
 		id: 'bf8iU08_3BHOO2jsoe_C4KI7J-XlZG2mdKL1WToZpaw.M6_bg5-byWC_OQQXwVWE51MY79pjVPIYGjUBnmIk314',
 		html: ``
 	}
