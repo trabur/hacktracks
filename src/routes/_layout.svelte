@@ -195,7 +195,7 @@
     },
     {
       name: 'Chat on Discord',
-      route: 'https://discord.gg/HXPq4d',
+      route: 'https://discord.gg/56ZxVK8',
       target: '_blank',
       indent: 0
     },
@@ -240,7 +240,7 @@
     },
     {
       name: 'Chat on Discord',
-      route: 'https://discord.gg/HXPq4d',
+      route: 'https://discord.gg/56ZxVK8',
       target: '_blank',
       indent: 0
     },
