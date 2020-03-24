@@ -110,17 +110,28 @@
 
   function save() {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+    let saveCount = 0;
 
     gun.get(pub).get('hacktracks.org').get('about').put(about).once((data, key) => {
       console.log('new about', data)
+      finish()
     })
 
     gun.get(pub).get('hacktracks.org').get('gamertag').put(gamertag).once((data, key) => {
       console.log('new gamertag', data)
+      finish()
     })
 
     gun.get(pub).get('hacktracks.org').get('discord').put(discord).once((data, key) => {
       console.log('new discord', data)
+      finish()
     })
+
+    function finish() {
+      saveCount++
+      if (saveCount === 3) {
+        alert('Success, your about me info has been updated! :)')
+      }
+    }
   }
 </script>
