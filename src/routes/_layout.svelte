@@ -12,7 +12,7 @@
       <Section>
           <IconButton class="material-icons" on:click={() => drawerOpen = !drawerOpen}>
             <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-              <path d="{mdiPound}" />
+              <path d="{mdiGoogleController}" />
             </svg>
           </IconButton>
           <Title component={A} href="/" class="mdc-theme--secondary" style="{miniWindow ? 'padding-left: 0;' : ''}">
@@ -136,7 +136,7 @@
   import {onMount, onDestroy} from 'svelte';
   import { writable } from 'svelte/store'
   import {stores} from '@sapper/app';
-  import {mdiStar, mdiConsole, mdiMapOutline, mdiAccount, mdiPound} from '@mdi/js';
+  import {mdiStar, mdiConsole, mdiMapOutline, mdiAccount, mdiGoogleController} from '@mdi/js';
   import './_app.scss';
   import TopAppBar, {Row, Section, Title} from '@smui/top-app-bar';
   import Drawer, {Content, Scrim, AppContent} from '@smui/drawer';
