@@ -20,9 +20,7 @@
       <Row style='max-width: 900px; margin: 0 auto;'>
         <div class='mobile hidden tablet hidden computer hidden' style='flex: none !important; max-width: 244px; padding: 1em;'>
           {#if profilePhoto}
-            <a href={`/accounts/${username}`} style='height: 100%;'>
-              <img alt='profile' src={`${profilePhoto}`} style='height: 204px; margin: -4em 0; border-radius: 0.5em; border: 4px solid #000; width: 204px;' />
-            </a>
+            <img alt='profile' src={`${profilePhoto}`} style='margin: -4.5em 0; border-radius: 0.5em; width: 210px;' />
           {:else}
             <img alt='profile' src={`data:image/png;base64,${identicon}`} style='height: 204px; margin: -4em 0; border-radius: 0.5em; border: 4px solid #000; width: 204px;' />
           {/if}
@@ -66,7 +64,7 @@
     </TopAppBar>
     <div class="flexor-content" style='max-width: 900px; margin: 0 auto; display: flex;'>
       <div class='mobile hidden tablet hidden computer hidden' style='min-width: 244px; max-width: 244px; margin-bottom: 4em;'>
-        <div style='padding: 3em 1em 0;'>
+        <div style='padding: 4em 1em 0;'>
           <div style='width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>
             <!-- {#if trustDistanceName}
               <span class='label label-default' style='float: right; margin: 0;'>{trustDistanceName}</span>
@@ -203,6 +201,7 @@
       about = data.about
       gamertag = data.gamertag
       discord = data.discord
+      profilePhoto = data.avatar
     })
 
     let r = [];

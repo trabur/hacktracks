@@ -51,6 +51,10 @@
       <Textfield type='text' bind:value={discord} label="discord" variant="outlined" style="width: 100%;" />
     </div>
     <br />
+    <div>
+      <Textfield type='text' bind:value={avatar} label="avatar" variant="outlined" style="width: 100%;" />
+    </div>
+    <br />
     <Button variant="unelevated" on:click={save} color='secondary' style='margin-top: 0.5em;'>
       <Label>Save</Label>
     </Button>
@@ -81,6 +85,7 @@
   let about = 'Leave a short description about anything for others to see on your profile page.';
   let gamertag = '';
   let discord = '';
+  let avatar = '';
   let account = '';
   let pub = '';
 
@@ -100,7 +105,7 @@
         discord = data.discord || ''
       });
     })
-    
+
     // google analytics
     gtag('config', 'UA-161516824-1', {
       'page_path': window.location.pathname
@@ -132,9 +137,14 @@
       finish()
     })
 
+    gun.get(pub).get('hacktracks.org').get('avatar').put(avatar).once((data, key) => {
+      console.log('new avatar', data)
+      finish()
+    })
+
     function finish() {
       saveCount++
-      if (saveCount === 3) {
+      if (saveCount === 4) {
         alert('Success, your about me info has been updated! :)')
       }
     }
