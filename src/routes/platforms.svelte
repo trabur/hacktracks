@@ -2,7 +2,7 @@
 	<title>HACKTRACKS Games & Consoles - HACKTRACKS - HT</title>
 </svelte:head>
 
-<div style="position: absolute; right: 0; left: 0;">
+<div style="height: 100%; width: 100%;">
 	<div style="margin-bottom: -150px; box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); padding: 3em 3em 9em; background: #fff; text-align: center;">
 		<img src="/keyboard.png" alt="keyboard" style="max-width: 100%;" />
 	</div>
