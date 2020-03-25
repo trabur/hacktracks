@@ -95,7 +95,12 @@
     // google analytics
     gtag('config', 'UA-161516824-1', {
       'page_path': window.location.pathname
-    });
+		});
+		
+		// the library list is randomized for fairness
+		mapMakers = mapMakers.sort(() => Math.random() - 0.5)
+		testers = testers.sort(() => Math.random() - 0.5)
+		leads = leads.sort(() => Math.random() - 0.5)
 	})
 </script>
 
