@@ -3,6 +3,7 @@ import posts from './_posts.js';
 const contents = JSON.stringify(posts.map(post => {
 	return {
 		gamertag: post.gamertag,
+		avatar: post.avatar,
 		mapMaker: post.mapMaker,
 		tester: post.tester,
 		lead: post.lead,

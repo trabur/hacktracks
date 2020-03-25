@@ -10,6 +10,7 @@
 const posts = [
 	{
 		gamertag: 'c u l8er',
+		avatar: 'avatars/c-u-l8er-avatar.png',
 		mapMaker: true,
 		tester: true,
 		lead: false,
@@ -20,6 +21,7 @@ const posts = [
 	},
 	{
 		gamertag: 'killer200O',
+		avatar: 'avatars/d-minus-c-avatar.png',
 		mapMaker: true,
 		tester: true,
 		lead: false,
@@ -30,6 +32,7 @@ const posts = [
 	},
 	{
 		gamertag: 'd minus c',
+		avatar: 'avatars/d-minus-c-avatar.png',
 		mapMaker: false,
 		tester: false,
 		lead: true,
