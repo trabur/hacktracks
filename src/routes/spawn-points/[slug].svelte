@@ -10,7 +10,7 @@
   <title>{username || 'Spawn Point'} - HACKTRACKS - HT</title>
 </svelte:head>
 
-<div style='width: 100%; overflow-x: hidden;'>
+<div style='height: 100%; width: 100%; overflow-x: hidden;'>
   <div class="grid" style='margin-bottom: 0; height: 500px; max-width: 100%;'>
     <div style={`height: 500px; background-image: url(${coverPhoto}); background-position: top center; background-size: cover; background-repeat: no-repeat;`}>
     </div>
