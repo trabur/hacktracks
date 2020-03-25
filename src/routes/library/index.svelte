@@ -21,7 +21,7 @@
 	<title>HACKTRACKS Map Library - HACKTRACKS - HT</title>
 </svelte:head>
 
-<div style="position: absolute; right: 0; left: 0;">
+<div style="height: 100%; width: 100%;">
 	<div style="margin-bottom: -130px; box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); background: url('/foundry.jpg'); height: 500px; background-position: top center; background-size: cover;"></div>
 	<div style="max-width: 900px; margin: 0 auto 5em;">
 		<h1 style="font-weight: 700; margin: 1em 0; text-shadow: 0 0 0.4em #000; color: #eee; font-size: 2em; padding: 0 0.5em; line-height: 1em; text-align: left; text-transform: none;">
