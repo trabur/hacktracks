@@ -38,7 +38,7 @@
 			{#each mapMakers as post}
 				<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; margin-bottom: 3em; padding-top: 0.5em;">
 					<Title class="mobile hidden" style="position: relative;">
-						<img src={`${post.avatar}`} alt={post.gamertag} style="width: 100px; position: absolute; left: 0; top: -42px;" />
+						<img src={`avatars/map-maker-avatar.png`} alt={post.gamertag} style="width: 100px; position: absolute; left: 0; top: -42px;" />
 						<a href={`/spawn-points/${post.id}`} style="margin-left: 110px;">{post.gamertag}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span>
 					</Title>
 					<Title class="mobile only">
@@ -52,8 +52,9 @@
 			<ReadyToMapMake />
 		{/if}
 		{#if mode === "@testers"}
-			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
-				<ol class="posts">
+			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; display: flex;">
+				<img src={`avatars/map-maker-avatar.png`} alt={'@testers'} class="mobile hidden" style="width: 100px;" />
+				<ol class="posts" style="flex: 1;">
 					{#each testers as post}
 						<li class="html"><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span class="stats">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></li>
 					{/each}
@@ -63,8 +64,9 @@
 			<ReadyToMapTest />
 		{/if}
 		{#if mode === "^leads"}
-			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em;">
-				<ol class="posts">
+			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; display: flex;">
+				<img src={`avatars/map-maker-avatar.png`} alt={'@testers'} class="mobile hidden" style="width: 100px;" />
+				<ol class="posts" style="flex: 1;">
 					{#each leads as post}
 						<li class="html"><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span class="stats">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></li>
 					{/each}
