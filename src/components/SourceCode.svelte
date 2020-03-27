@@ -33,4 +33,19 @@
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
 
   let open = false;
+
+	let race = "{ acknologing checkpoints within recursive enviornments }";
+	let hat = "{ puts on a sort of cheaters hat }";
+	let test = "() <--- test";
+	let mask = "{} <--- mask";
+	let check = "[] <--- check";
+	let push = "{ push pedal bike }";
+	let clipped = "{ clipped pedal bike }";
+	let up = "<---";
+	let math = "{ 1 + 1 = 2 }";
+	let fun = "built (tested) { <and>raced simultaneously</and> }";
+	let lookForward = "<";
+	let pacman = "PAC-MAN";
+	let gc = "{ <p>running around C>L>E>A>N>I>N>G up the script</p> }";
+	let script = `This eye + eye + ... well, science leaves nothing but circular logic ----> ... make, test, repeat ... make, test, repeat ... ----> therefor math or "m" at "h" will be used. As you can see, with every new era, somethings will work and somethings will break. Therefor terms such as "look-forward" and "look-backward" || "{lookForward}" and ">" statements and #brakes are a "forgers" tools of the trade; Here's The Thing: understanding HT's Temperature/Pressure is like trying to get a dregree in something beyond rocket science "\_(*_*)_/" now here is a simple garbadge collector ({pacman}) {gc}.`;
 </script>
