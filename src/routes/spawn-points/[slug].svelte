@@ -56,6 +56,9 @@
               {#if tab === ':)Kudos'}
                 <Label>{tab} [{kudosCount}]</Label>
               {/if}
+              {#if tab === '~Posts'}
+                <Label>{tab} [{postsCount}]</Label>
+              {/if}
             </Tab>
           </TabBar>
         </div>
@@ -95,7 +98,7 @@
                 <Content>
                   <img src={map.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
                 </Content>
-                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3]</span></Title>
+                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3] ~posts [2]</span></Title>
               </Paper>
             {/each}
             <NewMap slug={slug} account={account} username={username} />
@@ -114,6 +117,9 @@
                 {/if}
               </div>
             {/each} -->
+          {/if}
+          {#if active === '~Posts'}
+            <!-- -->
           {/if}
           <br class='mobile hidden tablet hidden' />
           <br class='mobile hidden tablet hidden' />
@@ -172,9 +178,10 @@
   let secondaryColor = true;
   let coverPhoto = './master-chief.jpg';
   let identicon = new Identicon(sha256(slug), 420).toString();
-  let navigation = ['#Maps', ':)Kudos']
+  let navigation = ['#Maps', ':)Kudos', '~Posts']
   let mapsCount = 0;
   let kudosCount = 0;
+  let postsCount = 0;
   let active = '#Maps';
   let maps = [];
   let about = '';

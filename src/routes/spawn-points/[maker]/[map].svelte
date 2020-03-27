@@ -33,6 +33,9 @@
 						{#if tab === ':)Kudos'}
 							<Label>{tab} [{kudosCount}]</Label>
 						{/if}
+						{#if tab === '~Posts'}
+							<Label>{tab} [{postsCount}]</Label>
+						{/if}
 					</Tab>
 				</TabBar>
 			</div>
@@ -57,9 +60,10 @@
 	import MakersToTypes from '../../../components/MakersToTypes';
 
   let active = 'README.md';
-  let navigation = ['README.md', ':)Kudos']
+  let navigation = ['README.md', ':)Kudos', '~Posts']
   export let map;
-  let kudosCount = 0;
+	let kudosCount = 0;
+	let postsCount = 0;
 	
 	onMount(() => {
     // google analytics

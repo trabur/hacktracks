@@ -20,7 +20,7 @@
   <Title><span class="mobile hidden">Latest 5</span> Maps:<span style="float: right;">(most recent)</span></Title>
   <ol class="maps">
     {#each maps as map}
-      <li class="html">{map.name}<span class="stats">:)kudos [{map.kudos}] ~replies [{map.replies}]</span></li>
+      <li class="html">{map.name}<span class="stats">:)kudos [{map.kudos}] ~posts [{map.posts}]</span></li>
     {/each}
 	</ol>
 </Paper>
@@ -33,27 +33,27 @@
 	let maps = [
 		{
 			name: "Speedway",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "Over The Edge",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "WallRider",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "HauntedRider",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "Something",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 	]

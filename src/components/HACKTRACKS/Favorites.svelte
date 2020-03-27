@@ -20,7 +20,7 @@
   <Title><span class="mobile hidden">HACKTRACKS</span> Map Library:<span style="float: right;">(favorites)</span></Title>
   <ol class="favorites">
     {#each favorites as favorite}
-      <li class="html">{favorite.name}<span class="stats">:)kudos [{favorite.kudos}] ~replies [{favorite.replies}]</span></li>
+      <li class="html">{favorite.name}<span class="stats">:)kudos [{favorite.kudos}] ~posts [{favorite.posts}]</span></li>
     {/each}
 	</ol>
 </Paper>
@@ -33,22 +33,22 @@
 	let favorites = [
 		{
 			name: "Speedway",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "Over The Edge",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "WallRider",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 		{
 			name: "HauntedRider",
-			replies: "3",
+			posts: "3",
 			kudos: "5"
 		},
 	]
