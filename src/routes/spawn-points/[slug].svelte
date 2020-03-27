@@ -127,9 +127,9 @@
           <Dialog bind:this={communicateDialog} style='color: #111;'>
             <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
             <Title style='padding: 0.5em 0.5em 0; text-align: center'>({username})</Title>
-            <Title style='padding: 0.5em 0.5em 0;'>share profile url:</Title>
+            <Title style='padding: 0.5em 0.5em 0;'>share spawn-point id:</Title>
             <Content style='padding: 0 0.5em;'>
-              https://hacktracks.org/spawn-points/{slug}
+              {slug}
             </Content>
             <Title style='padding: 0.5em 0.5em 0;'>chat on discord:</Title>
             <Content style='padding: 0 0.5em;'>
