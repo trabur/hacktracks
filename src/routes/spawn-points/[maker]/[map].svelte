@@ -18,10 +18,10 @@
 					<img src={`avatars/map-maker-avatar.png`} alt={'#map'} class="mobile hidden" style="margin-right: 1em; margin-top: -3em; float: left; width: 100px;" />
 					<span>{map}</span>
 					<Button class="mobile hidden" color="secondary" variant="unelevated" style='float: right;'>
-						<Label>DOWNLOAD</Label>
+						<Label>#MAP DOWNLOAD</Label>
 					</Button>
 					<Button class="mobile only" color="secondary" variant="unelevated" style='width: 100%; margin-top: 1em;'>
-						<Label>DOWNLOAD</Label>
+						<Label>#MAP DOWNLOAD</Label>
 					</Button>
 				</Title>
 				<br />
