@@ -53,7 +53,7 @@
 		{/if}
 		{#if mode === "@testers"}
 			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; display: flex;">
-				<img src={`avatars/map-maker-avatar.png`} alt={'@testers'} class="mobile hidden" style="width: 100px;" />
+				<img src={`avatars/tester-avatar.png`} alt={'@testers'} class="mobile hidden" style="width: 100px;" />
 				<ol class="posts" style="flex: 1;">
 					{#each testers as post}
 						<li class="html"><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span class="stats">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></li>
@@ -65,7 +65,7 @@
 		{/if}
 		{#if mode === "^leads"}
 			<Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; display: flex;">
-				<img src={`avatars/map-maker-avatar.png`} alt={'@testers'} class="mobile hidden" style="width: 100px;" />
+				<img src={`avatars/lead-avatar.png`} alt={'@testers'} class="mobile hidden" style="width: 100px;" />
 				<ol class="posts" style="flex: 1;">
 					{#each leads as post}
 						<li class="html"><a href={`/spawn-points/${post.id}`}>{post.gamertag}</a> <span class="stats">[maps: {post.mapsMade}, kudos: {post.kudosGiven}]</span></li>
