@@ -79,6 +79,12 @@
               <p style='margin: 0;'>{about}</p>
             </Content>
           </Paper>
+          <br />
+          <Group style='display: flex;'>
+            <Button href={`/stacks/${slug}`} style='flex-grow: 1;' color='secondary' variant="unelevated">
+              Stack
+            </Button>
+          </Group>
           {#if account === username}
             <br />
             <Group style='display: flex;'>

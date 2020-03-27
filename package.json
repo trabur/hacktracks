@@ -2,6 +2,9 @@
   "name": "hacktracks",
   "description": "",
   "version": "0.0.1",
+  "config": {
+    "featuredStack": "bf8iU08_3BHOO2jsoe_C4KI7J-XlZG2mdKL1WToZpaw.M6_bg5-byWC_OQQXwVWE51MY79pjVPIYGjUBnmIk314"
+  },
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper export",

@@ -2,11 +2,11 @@
 <div style='display: flex;' class="mobile hidden">
   <Paper elevation={3} style='margin: 1em auto; max-width: 300px;'>
     <Content>
-      <h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>THE LIBRARY</h3>
+      <h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>FEATURED STACK</h3>
       <p style='margin: 0;'>
-        <strong>Includes maps featured on bungie favorites</strong>, plus maps such as WallRider, Over The Edge, and HT Challenges (easy-hard).
+        <strong>With supervisor-trees or "stacks"</strong>, moving from ideas to checkpoints becomes possible :) use this as an example.
       </p>
-      <Button href='/library' variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
+      <Button href={`/stacks/${npmPackage.config.featuredStack}`} variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
     </Content>
   </Paper>
   <div style="width: 1em;"></div>
@@ -30,4 +30,6 @@
 <script>
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
   import Button, {Group, GroupItem} from '@smui/button';
+
+	import npmPackage from '../../../package.json'
 </script>

@@ -21,7 +21,7 @@
       </Section>
       <Section align="end" toolbar>
         {#if username}
-          <IconButton href="/library">
+          <IconButton href={`/stacks/${npmPackage.config.featuredStack}`}>
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiMapOutline}" />
@@ -50,7 +50,7 @@
             </Icon>
           </IconButton>
         {:else}
-          <IconButton href="/library">
+          <IconButton href={`/stacks/${npmPackage.config.featuredStack}`}>
             <Icon class="mdc-theme--secondary">
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path d="{mdiMapOutline}" />
@@ -154,6 +154,7 @@
   // import uuidv4 from 'uuid/v4';
   import Header from '../components/HACKTRACKS/Header';
 	import ATCH from '../components/ATCH';
+	import npmPackage from '../../package.json'
 
   const {page} = stores();
   let mainContent;
@@ -190,8 +191,8 @@
       indent: 0
     },
     {
-      name: 'The Library',
-      route: '/library',
+      name: 'Featured Stack',
+      route: `/stacks/${npmPackage.config.featuredStack}`,
       indent: 1
     },
     {
@@ -235,8 +236,8 @@
       indent: 0
     },
     {
-      name: 'The Library',
-      route: '/library',
+      name: 'Featured Stack',
+      route: `/stacks/${npmPackage.config.featuredStack}`,
       indent: 1
     },
     {

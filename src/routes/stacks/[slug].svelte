@@ -1,6 +1,6 @@
 <script context="module">
 	export function preload({ params, query }) {
-		return this.fetch(`library.json`).then(r => r.json()).then(posts => {
+		return this.fetch(`stacks.json`).then(r => r.json()).then(posts => {
 			// the library list is randomized for fairness
 			posts.sort(() => Math.random() - 0.5)
 			let mapMakers = posts.filter((post) => {
@@ -73,6 +73,9 @@
 				</ol>
 			</Paper>
 			<br />
+			<ReadyToStack />
+			<br />
+			<br />
 			<br />
 			<br />
 		{/if}
@@ -84,6 +87,7 @@
 	import Paper, {Title, Subtitle, Content} from '@smui/paper';
 	import ReadyToMapMake from '../../components/ReadyToMapMake';
 	import ReadyToMapTest from '../../components/ReadyToMapTest';
+	import ReadyToStack from '../../components/ReadyToStack';
   import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
 	
 	export let mapMakers;
