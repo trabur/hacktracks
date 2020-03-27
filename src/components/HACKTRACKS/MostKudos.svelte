@@ -20,7 +20,7 @@
   <Title><span class="mobile hidden">Top 5</span> Maps:<span style="float: right;">(most kudos)</span></Title>
   <ol class="maps">
     {#each maps as map}
-      <li class="html">{map.name}<span class="stats">[kudos: {map.kudos}, replies: {map.replies}]</span></li>
+      <li class="html">{map.name}<span class="stats">:)kudos [{map.kudos}] ~replies [{map.replies}]</span></li>
     {/each}
 	</ol>
 </Paper>

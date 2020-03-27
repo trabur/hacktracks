@@ -20,7 +20,7 @@
   <Title><span class="mobile hidden">HACKTRACKS</span> Map Library:<span style="float: right;">(favorites)</span></Title>
   <ol class="favorites">
     {#each favorites as favorite}
-      <li class="html">{favorite.name}<span class="stats">[kudos: {favorite.kudos}, replies: {favorite.replies}]</span></li>
+      <li class="html">{favorite.name}<span class="stats">:)kudos [{favorite.kudos}] ~replies [{favorite.replies}]</span></li>
     {/each}
 	</ol>
 </Paper>

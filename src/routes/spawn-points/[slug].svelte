@@ -50,10 +50,10 @@
           </div>
           <TabBar tabs={navigation} let:tab bind:active style='margin: 0px; bottom: 0; position: absolute;'>
             <Tab {tab} minWidth>
-              {#if tab === 'Maps'}
+              {#if tab === '#Maps'}
                 <Label>{tab} [{mapsCount}]</Label>
               {/if}
-              {#if tab === 'Kudos :)'}
+              {#if tab === ':)Kudos'}
                 <Label>{tab} [{kudosCount}]</Label>
               {/if}
             </Tab>
@@ -89,18 +89,18 @@
       <div style='width: 100%; position: relative; max-width: 100%;'>
         <div style='width: 100%; position: absolute; top: 0;'>
           <br />
-          {#if active === 'Maps'}
+          {#if active === '#Maps'}
             {#each maps as map}
 			        <Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; margin: 0 0 1em;">
                 <Content>
                   <img src={map.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
                 </Content>
-                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">[kudos: 3]</span></Title>
+                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3]</span></Title>
               </Paper>
             {/each}
             <NewMap slug={slug} account={account} username={username} />
           {/if}
-          {#if active === 'Kudos :)'}
+          {#if active === ':)Kudos'}
             <!-- {#each received as r}
               <div style='border-bottom: 1px solid #ccc; padding: 1em;'>
                 {#if r.type === 'post'}
@@ -172,10 +172,10 @@
   let secondaryColor = true;
   let coverPhoto = './master-chief.jpg';
   let identicon = new Identicon(sha256(slug), 420).toString();
-  let navigation = ['Maps', 'Kudos :)']
+  let navigation = ['#Maps', ':)Kudos']
   let mapsCount = 0;
   let kudosCount = 0;
-  let active = 'Maps';
+  let active = '#Maps';
   let maps = [];
   let about = '';
   let communicateDialog;

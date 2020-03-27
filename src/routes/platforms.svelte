@@ -16,7 +16,7 @@
 				<Content>
 					<ol class="posts">
 						{#each post.games as game}
-							<li class="html">{game.name} <span class="stats">[maps: {game.maps}, kudos: {game.kudos}]</span></li>
+							<li class="html">{game.name} <span class="stats">#maps [{game.maps}] :)kudos [{game.kudos}]</span></li>
 						{/each}
 					</ol>
 				</Content>
