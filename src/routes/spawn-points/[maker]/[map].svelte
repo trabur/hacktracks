@@ -44,7 +44,7 @@
 				<Content style="padding: 1em;">
 					{#if username === account}
 						{#if edit}
-							<Button color="secondary" variant="unelevated" style="float: right; margin: 0 0 0.5em 0.5em;" on:click={() => edit = !edit}>
+							<Button color="secondary" variant="unelevated" style="float: right; margin: 0 0 0.5em 0.5em;" on:click={save}>
 								<Label>SAVE</Label>
 							</Button>
 							<Button color="secondary" variant="outlined" style="float: right; margin: 0 0 0.5em 0.5em;" on:click={() => edit = !edit}>
@@ -100,7 +100,7 @@
   let username = '';
   let account = 'HT';
 	let name = '';
-	let body = 'From Ideas. To Checkpoints. With Forge.';
+	let body = '';
 	let edit = false;
 	let download = '';
 	let photo = 'hauntedrider.png';
@@ -128,6 +128,7 @@
 				name = data.name
 				download = data.download || ''
 				photo = data.photo || 'hauntedrider.png'
+				body = data.body || 'From Ideas. To Checkpoints. With Forge.'
 				createdAt = data.createdAt
       }
     })
@@ -137,4 +138,37 @@
       'page_path': window.location.pathname
     });
 	})
+
+  function save() {
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+    let saveCount = 0;
+
+    gun.get(maker).get('hacktracks.org').get('maps').get(map).get('name').put(name).once((data, key) => {
+			console.log('saved name', data)
+      finish()
+		})
+
+    gun.get(maker).get('hacktracks.org').get('maps').get(map).get('download').put(download).once((data, key) => {
+			console.log('saved download', data)
+      finish()
+		})
+
+    gun.get(maker).get('hacktracks.org').get('maps').get(map).get('photo').put(photo).once((data, key) => {
+			console.log('saved photo', data)
+      finish()
+		})
+
+    gun.get(maker).get('hacktracks.org').get('maps').get(map).get('body').put(body).once((data, key) => {
+			console.log('saved body', data)
+      finish()
+		})
+		
+    function finish() {
+			saveCount++
+      if (saveCount === 4) {
+				alert('Success, your map has been updated! :)')
+	      edit = false;
+      }
+    }
+	}
 </script>
