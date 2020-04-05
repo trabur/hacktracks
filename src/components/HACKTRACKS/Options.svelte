@@ -4,7 +4,7 @@
     <Content>
       <h3 style='font-size: 1.5em; margin: 0; font-weight: bold;'>FEATURED STACK</h3>
       <p style='margin: 0;'>
-        <strong>With supervisor-trees or "stacks"</strong>, moving from ideas to checkpoints becomes possible :) use this as an example.
+        <strong>Stacks are simple {stack}</strong>, these allow members to run their own organizations within HT.
       </p>
       <Button href={`/stacks/${npmPackage.config.featuredStack}`} variant='outlined' color='primary' style='width: 100%; margin-top: 1em;'>browse</Button>
     </Content>
@@ -30,6 +30,7 @@
 <script>
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
   import Button, {Group, GroupItem} from '@smui/button';
+	import npmPackage from '../../../package.json';
 
-	import npmPackage from '../../../package.json'
+  let stack = `ack(st){supervisor-tree}`;
 </script>
