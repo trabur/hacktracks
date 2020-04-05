@@ -76,7 +76,7 @@
           </div>
           <Paper color="primary" style='margin-top: 1em;'>
             <Content>
-              <p style='margin: 0;'>{about}</p>
+              <p style='margin: 0;'>{about || 'From Ideas. To Checkpoints. With Forge.'}</p>
             </Content>
           </Paper>
           <br />
