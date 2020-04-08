@@ -104,7 +104,7 @@
                 <Content>
                   <img src={map.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
                 </Content>
-                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3] ~posts [2]</span></Title>
+                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name || '#map'}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3] ~posts [2]</span></Title>
               </Paper>
             {/each}
             <NewMap slug={slug} account={account} username={username} />
@@ -199,10 +199,14 @@
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
     let user = gun.user();
     
-    user.recall({ sessionStorage: true }, (recalled) => {
-      console.log('recalled', recalled)
-      account = recalled.put.alias;
-    })
+		setTimeout(() => {
+      user.recall({ sessionStorage: true }, (recalled) => {
+        console.log('recalled', recalled)
+        if (recalled.put) {
+          account = recalled.put.alias;
+        }
+      })
+    }, 1)
 
     gun.user(slug).once((data, key) => {
       console.log('spawn point data: ', data)

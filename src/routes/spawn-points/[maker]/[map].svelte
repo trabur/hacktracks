@@ -73,7 +73,11 @@
 					{/if}
 					<span>Created by: <a href={`/spawn-points/${maker}`}>{username}</span><br />
 					<span>Created at: {createdAt}</span><br />
-					<div bind:this={html}></div>
+					
+					<div
+						contenteditable="true"
+						bind:innerHTML={body}
+					></div>
 				</Content>
 			</div>
 		</Paper>
@@ -91,7 +95,6 @@
 	import MakersToTypes from '../../../components/MakersToTypes';
   import Textfield, {Input, Textarea} from '@smui/textfield';
 
-	let html;
   let active = 'README.md';
   let navigation = ['README.md', ':)Kudos', '~Posts']
   export let map;
@@ -110,11 +113,15 @@
 	onMount(() => {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
     let user = gun.user();
-    
-    user.recall({ sessionStorage: true }, (recalled) => {
-      console.log('recalled', recalled)
-      account = recalled.put.alias;
-    })
+		
+		setTimeout(() => {
+			user.recall({ sessionStorage: true }, (recalled) => {
+				console.log('recalled', recalled)
+				if (recalled.put) {
+					account = recalled.put.alias;
+				}
+			})
+		}, 1);
 
     gun.user(maker).once((data, key) => {
       console.log('spawn point data: ', data)
@@ -130,7 +137,6 @@
 				download = data.download || ''
 				photo = data.photo || 'hauntedrider.png'
 				body = data.body || 'From Ideas. To Checkpoints. With Forge.'
-				html.innerHTML = body
 				createdAt = data.createdAt
       }
     })
