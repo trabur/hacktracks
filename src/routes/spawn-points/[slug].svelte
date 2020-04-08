@@ -102,7 +102,7 @@
             {#each maps as map}
 			        <Paper elevation={5} style="background: #111; color: #ccc; padding: 1em; margin: 0 0 1em;">
                 <Content>
-                  <img src={map.coverPhoto || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
+                  <img src={map.photo || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
                 </Content>
                 <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name || '#map'}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3] ~posts [2]</span></Title>
               </Paper>
