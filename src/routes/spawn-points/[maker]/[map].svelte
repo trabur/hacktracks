@@ -73,7 +73,7 @@
 					{/if}
 					<span>Created by: <a href={`/spawn-points/${maker}`}>{username}</span><br />
 					<span>Created at: {createdAt}</span><br />
-					{body}
+					<div bind:this={html}></div>
 				</Content>
 			</div>
 		</Paper>
@@ -91,6 +91,7 @@
 	import MakersToTypes from '../../../components/MakersToTypes';
   import Textfield, {Input, Textarea} from '@smui/textfield';
 
+	let html;
   let active = 'README.md';
   let navigation = ['README.md', ':)Kudos', '~Posts']
   export let map;
@@ -129,6 +130,7 @@
 				download = data.download || ''
 				photo = data.photo || 'hauntedrider.png'
 				body = data.body || 'From Ideas. To Checkpoints. With Forge.'
+				html.innerHTML = body
 				createdAt = data.createdAt
       }
     })
