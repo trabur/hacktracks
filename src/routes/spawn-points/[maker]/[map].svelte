@@ -50,6 +50,9 @@
 							<Button color="secondary" variant="outlined" style="float: right; margin: 0 0 0.5em 0.5em;" on:click={() => edit = !edit}>
 								<Label>CANCEL</Label>
 							</Button>
+							<Button color="secondary" variant="outlined" style="float: right; margin: 0 0 0.5em 0.5em;" on:click={redelete}>
+								<Label>DELETE</Label>
+							</Button>
 							<div>
       					<Textfield color='secondary' type='text' bind:value={name} label="name" style="width: 100%; background: #aaa;" />
 							</div>
@@ -146,6 +149,15 @@
       'page_path': window.location.pathname
     });
 	})
+
+	function redelete() {
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
+
+    gun.get(maker).get('hacktracks.org').get('maps').get(map).put(null).once((data, key) => {
+			console.log('redelete', key)
+			alert('<!-- #map has ben deleted -->')
+		})
+	}
 
   function save() {
     let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
