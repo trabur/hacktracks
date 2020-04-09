@@ -104,7 +104,7 @@
                 <Content>
                   <img src={map.photo || "hauntedrider.png"} style="width: 100%;" alt={map.name} />
                 </Content>
-                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._["#"]}`}>{map.name || '#map'}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3] ~posts [2]</span></Title>
+                <Title style="padding: 0"><a href={`/spawn-points/${slug}/${map._ ? map._["#"] : null}`}>{map.name || '#map'}</a> <span style="color: #aaa; float: right; font-size: 0.8em;">:)kudos [3] ~posts [2]</span></Title>
               </Paper>
             {/each}
             <NewMap slug={slug} account={account} username={username} />
@@ -224,10 +224,11 @@
     let r = [];
     gun.get(slug).get('hacktracks.org').get('maps').map().on((data, key) => {
       r = r.filter((value, index) => {
-        return value._['#'] !== key
+        if (!value._ || !value._['#']) return false;
+        return value ? value._['#'] !== key : null
       })
       if (data === null) { // data was removed
-        console.log('ht maps', key)
+        console.log('ht xmap', key)
       } else if (data) { // data was added / updated
         console.log('ht maps', data)
         r = [data, ...r]
