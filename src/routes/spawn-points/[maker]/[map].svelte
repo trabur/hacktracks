@@ -155,7 +155,7 @@
 
     gun.get(maker).get('hacktracks.org').get('maps').get(map).put(null).once((data, key) => {
 			console.log('redelete', key)
-			alert('<!-- #map has ben deleted -->')
+			alert('<!-- #map is deleted -->')
 		})
 	}
 
