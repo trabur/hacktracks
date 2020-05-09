@@ -148,32 +148,19 @@
   }
 
   function save() {
-    let gun = new Gun(['https://gunjs.herokuapp.com/gun']);
-    let saveCount = 0;
-
-    gun.get(pub).get('hacktracks.org').get('about').put(about).once((data, key) => {
-      console.log('new about', data)
-      finish()
-    })
-
-    gun.get(pub).get('hacktracks.org').get('gamertag').put(gamertag).once((data, key) => {
-      console.log('new gamertag', data)
-      finish()
-    })
-
-    gun.get(pub).get('hacktracks.org').get('discord').put(discord).once((data, key) => {
-      console.log('new discord', data)
-      finish()
-    })
-
-    gun.get(pub).get('hacktracks.org').get('avatar').put(avatar).once((data, key) => {
-      console.log('new avatar', data)
-      finish()
+    let gun = new Gun(['https://gunjs.herokuapp.com/gun'])
+    let saveCount = 0
+    let saveValues = ['about', 'gamertag', 'discord', 'avatar']
+    saveValues.forEach((value, key) => {
+      gun.get(pub).get('hacktracks.org').get(value).put([value]).once((data, key) => {
+        console.log(`new ${value} ${data}`)
+        finish()
+      })
     })
 
     function finish() {
       saveCount++
-      if (saveCount === 4) {
+      if (saveCount === saveValues.length) {
         alert('Success, your about me info has been updated! :)')
       }
     }
