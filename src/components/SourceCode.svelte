@@ -32,7 +32,7 @@
 <script>
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
 
-  let open = false;
+  let open = true;
 
 	let race = "{ acknologing checkpoints within recursive enviornments }";
 	let hat = "{ puts on a sort of cheaters hat }";
