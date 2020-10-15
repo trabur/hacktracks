@@ -1,4 +1,3 @@
-
 {#if open}
   <Paper elevation={5} style="background: #111; color: #ccc;">
     <Title>Ready? Set. Go!</Title>
@@ -32,7 +31,7 @@
 <script>
   import Paper, {Title, Subtitle, Content} from '@smui/paper';
 
-  let open = true;
+  let open = false;
 
 	let race = "{ acknologing checkpoints within recursive enviornments }";
 	let hat = "{ puts on a sort of cheaters hat }";
